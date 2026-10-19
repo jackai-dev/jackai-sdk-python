@@ -1,0 +1,139 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "JackAI Platform OS — Unified Identity, Multi-Provider Billing, Treasury & Granular Spheres API",
+    "version": "1.0.0",
+    "description": "Official OpenAPI 3.1.0 specification for JackAI Platform OS (`api.jackaisaas.com`) — Unified SSO & Passkeys, Controlled V1 Waitlist Registration, 6-Provider Billing (Stripe, Polar, Paddle, Lemon Squeezy, PayPal, Manual), Real-Money Bank Payouts, 2-Phase Atomic Usage Metering, and Non-Destructive Supervised AI Agent Execution."
+  },
+  "servers": [
+    {
+      "url": "https://api.jackaisaas.com",
+      "description": "JackAI Platform OS Production Hub API"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "operationId": "getHealth",
+        "summary": "Check Hub API health, connected products, and active governed plan versions",
+        "responses": {
+          "200": {
+            "description": "Hub health status"
+          }
+        }
+      }
+    },
+    "/user/auth/signup-policy": {
+      "get": {
+        "operationId": "getSignupPolicy",
+        "summary": "Inspect current V1 user registration policy (waitlist vs open self-service)",
+        "responses": {
+          "200": {
+            "description": "Current signup policy"
+          }
+        }
+      }
+    },
+    "/user/auth/waitlist": {
+      "post": {
+        "operationId": "submitWaitlistRequest",
+        "summary": "Record a prospective customer access request while V1 public signup is gated",
+        "responses": {
+          "202": {
+            "description": "Waitlist request recorded with WL-2026 reference"
+          }
+        }
+      }
+    },
+    "/user/auth/login": {
+      "post": {
+        "operationId": "loginUser",
+        "summary": "Authenticate user credentials and issue host-only session or step-up MFA challenge",
+        "responses": {
+          "200": {
+            "description": "Authenticated session or MFA challenge"
+          }
+        }
+      }
+    },
+    "/user/me": {
+      "get": {
+        "operationId": "getCurrentUser",
+        "summary": "Retrieve current user profile, organizations, and active security posture",
+        "responses": {
+          "200": {
+            "description": "Current user context"
+          }
+        }
+      }
+    },
+    "/v1/billing/checkout": {
+      "post": {
+        "operationId": "createCheckoutSession",
+        "summary": "Create a multi-provider checkout session (Stripe, Polar, Paddle, Lemon Squeezy, PayPal, Manual)",
+        "responses": {
+          "200": {
+            "description": "Checkout session URL and idempotency ledger entry"
+          }
+        }
+      }
+    },
+    "/v1/billing/payouts": {
+      "post": {
+        "operationId": "createBankPayout",
+        "summary": "Trigger a real-money bank payout (Standard J+2 or Instant ~30 min) from available treasury balance",
+        "responses": {
+          "201": {
+            "description": "Bank payout initiated"
+          }
+        }
+      }
+    },
+    "/v1/kernel/usage/reserve": {
+      "post": {
+        "operationId": "reserveUsageQuota",
+        "summary": "Phase 1 of atomic 2-phase quota metering: reserve credits before task execution",
+        "responses": {
+          "200": {
+            "description": "Reservation lease created"
+          }
+        }
+      }
+    },
+    "/v1/kernel/usage/finalize": {
+      "post": {
+        "operationId": "finalizeUsageQuota",
+        "summary": "Phase 2 of atomic 2-phase quota metering: commit actual consumed credits",
+        "responses": {
+          "200": {
+            "description": "Reservation finalized"
+          }
+        }
+      }
+    },
+    "/v1/kernel/usage/release": {
+      "post": {
+        "operationId": "releaseUsageQuota",
+        "summary": "Rollback reserved quota credits when an execution fails or is cancelled",
+        "responses": {
+          "200": {
+            "description": "Reservation released"
+          }
+        }
+      }
+    }
+  }
+}
