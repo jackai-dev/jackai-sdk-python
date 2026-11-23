@@ -1,0 +1,933 @@
+{
+  "archive_identity": "caller supplies the SHA-256 of the exact installed wheel or npm archive",
+  "checkpoint_protocol": "omniwrap.agent-session/v1",
+  "code_map": {
+    "effect_edges": [
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "failUsageQuota",
+        "resource": "/v1/kernel/usage/fail"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "finalizeUsageQuota",
+        "resource": "/v1/kernel/usage/finalize"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "loginUser",
+        "resource": "/user/auth/login"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "reserveUsageQuota",
+        "resource": "/v1/kernel/usage/reserve"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "submitWaitlistRequest",
+        "resource": "/user/auth/waitlist"
+      }
+    ],
+    "language": "python",
+    "operation_partition": {
+      "mutating": [
+        "failUsageQuota",
+        "finalizeUsageQuota",
+        "loginUser",
+        "reserveUsageQuota",
+        "submitWaitlistRequest"
+      ],
+      "read_only": [
+        "getCurrentUser",
+        "getHealth",
+        "getSignupPolicy"
+      ]
+    },
+    "schema": "omniwrap.agent-code-map/v1",
+    "source_sha256": "c7ca5e5ebb4c092910ec72b371e188303358c5e34d2908c0a88f782a241162cf",
+    "symbols": {
+      "failUsageQuota": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "fail_usage_quota",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [],
+        "symbol": "Client.fail_usage_quota",
+        "writes": [
+          "/v1/kernel/usage/fail"
+        ]
+      },
+      "finalizeUsageQuota": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "finalize_usage_quota",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [],
+        "symbol": "Client.finalize_usage_quota",
+        "writes": [
+          "/v1/kernel/usage/finalize"
+        ]
+      },
+      "getCurrentUser": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "get_current_user",
+        "mutation": false,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [],
+        "symbol": "Client.get_current_user",
+        "writes": []
+      },
+      "getHealth": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "get_health",
+        "mutation": false,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [],
+        "symbol": "Client.get_health",
+        "writes": []
+      },
+      "getSignupPolicy": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "get_signup_policy",
+        "mutation": false,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [],
+        "symbol": "Client.get_signup_policy",
+        "writes": []
+      },
+      "loginUser": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "login_user",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [],
+        "symbol": "Client.login_user",
+        "writes": [
+          "/user/auth/login"
+        ]
+      },
+      "reserveUsageQuota": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "reserve_usage_quota",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [],
+        "symbol": "Client.reserve_usage_quota",
+        "writes": [
+          "/v1/kernel/usage/reserve"
+        ]
+      },
+      "submitWaitlistRequest": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "submit_waitlist_request",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [],
+        "symbol": "Client.submit_waitlist_request",
+        "writes": [
+          "/user/auth/waitlist"
+        ]
+      }
+    }
+  },
+  "entrypoint": "agent_session.AgentSession",
+  "execution_boundary": "caller-owned SDK process; trusted cooperative provider and persistence callbacks; no hosted model or arbitrary-code sandbox",
+  "language": "python",
+  "operations": {
+    "failUsageQuota": {
+      "arguments": [],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "failUsageQuota"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": [
+            "/v1/kernel/usage/fail"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Release the reserved quota of an execution that failed or was cancelled"
+      },
+      "method": "fail_usage_quota",
+      "mutation": true
+    },
+    "finalizeUsageQuota": {
+      "arguments": [],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "finalizeUsageQuota"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": [
+            "/v1/kernel/usage/finalize"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Phase 2 of atomic 2-phase quota metering: commit actual consumed credits"
+      },
+      "method": "finalize_usage_quota",
+      "mutation": true
+    },
+    "getCurrentUser": {
+      "arguments": [],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "getCurrentUser"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.compensation.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.reversible.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.safe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Retrieve current user profile, organizations, and active security posture"
+      },
+      "method": "get_current_user",
+      "mutation": false
+    },
+    "getHealth": {
+      "arguments": [],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "getHealth"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.compensation.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.reversible.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.safe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Check that the Hub API process is up"
+      },
+      "method": "get_health",
+      "mutation": false
+    },
+    "getSignupPolicy": {
+      "arguments": [],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "getSignupPolicy"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.compensation.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.reversible.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.safe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Inspect current V1 user registration policy (waitlist vs open self-service)"
+      },
+      "method": "get_signup_policy",
+      "mutation": false
+    },
+    "loginUser": {
+      "arguments": [],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "loginUser"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": [
+            "/user/auth/login"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Authenticate user credentials and issue host-only session or step-up MFA challenge"
+      },
+      "method": "login_user",
+      "mutation": true
+    },
+    "reserveUsageQuota": {
+      "arguments": [],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "reserveUsageQuota"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": [
+            "/v1/kernel/usage/reserve"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Phase 1 of atomic 2-phase quota metering: reserve credits before task execution"
+      },
+      "method": "reserve_usage_quota",
+      "mutation": true
+    },
+    "submitWaitlistRequest": {
+      "arguments": [],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "submitWaitlistRequest"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": [
+            "/user/auth/waitlist"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Record a prospective customer access request while V1 public signup is gated"
+      },
+      "method": "submit_waitlist_request",
+      "mutation": true
+    }
+  },
+  "provider_protocol": "omniwrap.agent-provider/v1",
+  "schema": "omniwrap.agent-session-discovery/v1",
+  "source_sha256": "c7ca5e5ebb4c092910ec72b371e188303358c5e34d2908c0a88f782a241162cf"
+}

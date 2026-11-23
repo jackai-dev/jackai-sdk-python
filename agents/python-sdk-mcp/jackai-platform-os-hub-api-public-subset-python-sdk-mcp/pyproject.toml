@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jackai-platform-os-hub-api-public-subset-python-sdk-mcp"
+version = "1.0.0"
+requires-python = ">=3.9"
+description = "MCP operation tools backed by a bundled generated Python SDK"
+readme = "README.md"
+dependencies = ["httpx>=0.24,<1", "typing_extensions>=4.2.0", "jsonschema>=4.18,<5"]
+
+[project.scripts]
+"jackai-platform-os-hub-api-public-subset-python-sdk-mcp" = "omniwrap_jackai_platform_os_hub_api_public_subset_mcp.server:main"
+
+[tool.setuptools]
+packages = ["omniwrap_jackai_platform_os_hub_api_public_subset_mcp", "omniwrap_mcp_c7ca5e5ebb4c_sdk", "omniwrap_mcp_c7ca5e5ebb4c_sdk.resources"]
+
+[tool.setuptools.package-dir]
+"omniwrap_jackai_platform_os_hub_api_public_subset_mcp" = "omniwrap_jackai_platform_os_hub_api_public_subset_mcp"
+"omniwrap_mcp_c7ca5e5ebb4c_sdk" = "_sdk/omniwrap-mcp-c7ca5e5ebb4c-sdk/omniwrap_mcp_c7ca5e5ebb4c_sdk"
+
+[tool.setuptools.package-data]
+"omniwrap_jackai_platform_os_hub_api_public_subset_mcp" = ["tool-map.json", "semantic-api.json", "docs-index.json"]
+"omniwrap_mcp_c7ca5e5ebb4c_sdk" = ["py.typed"]

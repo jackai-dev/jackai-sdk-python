@@ -1,0 +1,76 @@
+{
+  "contract_fingerprint": "c7ca5e5ebb4c092910ec72b371e188303358c5e34d2908c0a88f782a241162cf",
+  "sdk_targets_version": "1.1.0",
+  "targets": [
+    {
+      "identity": {
+        "coordinates": "jackai-sdk-sdk==1.0.0",
+        "ecosystem": "PyPI",
+        "entry": "",
+        "import": "import jackai_sdk_sdk"
+      },
+      "operations": {
+        "failUsageQuota": {
+          "member": "kernel.fail_usage_quota",
+          "method": "POST",
+          "path": "/v1/kernel/usage/fail",
+          "resource": "kernel",
+          "signature": "client.kernel.fail_usage_quota(*, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "finalizeUsageQuota": {
+          "member": "kernel.finalize_usage_quota",
+          "method": "POST",
+          "path": "/v1/kernel/usage/finalize",
+          "resource": "kernel",
+          "signature": "client.kernel.finalize_usage_quota(*, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "getCurrentUser": {
+          "member": "user.get_current",
+          "method": "GET",
+          "path": "/user/me",
+          "resource": "user",
+          "signature": "client.user.get_current(*, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "getHealth": {
+          "member": "health.get",
+          "method": "GET",
+          "path": "/health",
+          "resource": "health",
+          "signature": "client.health.get(*, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "getSignupPolicy": {
+          "member": "user.get_signup_policy",
+          "method": "GET",
+          "path": "/user/auth/signup-policy",
+          "resource": "user",
+          "signature": "client.user.get_signup_policy(*, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "loginUser": {
+          "member": "user.login",
+          "method": "POST",
+          "path": "/user/auth/login",
+          "resource": "user",
+          "signature": "client.user.login(*, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "reserveUsageQuota": {
+          "member": "kernel.reserve_usage_quota",
+          "method": "POST",
+          "path": "/v1/kernel/usage/reserve",
+          "resource": "kernel",
+          "signature": "client.kernel.reserve_usage_quota(*, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "submitWaitlistRequest": {
+          "member": "user.submit_waitlist_request",
+          "method": "POST",
+          "path": "/user/auth/waitlist",
+          "resource": "user",
+          "signature": "client.user.submit_waitlist_request(*, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        }
+      },
+      "package_directory": "../jackai-sdk-sdk",
+      "package_manifest": "pyproject.toml",
+      "reference": "api.md",
+      "renderer": "python"
+    }
+  ]
+}

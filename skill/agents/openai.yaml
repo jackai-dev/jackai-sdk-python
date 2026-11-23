@@ -1,0 +1,4 @@
+interface:
+  display_name: "jackai_platform_os_hub_api_public_subset Library"
+  short_description: "Build confidently with jackai_platform_os_hub_api_public_subset"
+  default_prompt: "Use $use-jackai-platform-os-hub-api-public-subset to implement a correct jackai_platform_os_hub_api_public_subset integration."

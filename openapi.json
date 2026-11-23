@@ -1,0 +1,117 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "JackAI Platform OS Hub API (public subset)",
+    "version": "1.0.0",
+    "description": "OpenAPI 3.1.0 description of the JackAI Platform OS Hub API operations these SDKs wrap (`api.jackaisaas.com`): liveness, waitlist-gated registration, sign-in, the current user, and reserve/finalize/fail usage metering. Only routes the Hub serves are listed."
+  },
+  "servers": [
+    {
+      "url": "https://api.jackaisaas.com",
+      "description": "JackAI Platform OS Production Hub API"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "operationId": "getHealth",
+        "summary": "Check that the Hub API process is up",
+        "responses": {
+          "200": {
+            "description": "Hub liveness status"
+          }
+        }
+      }
+    },
+    "/user/auth/signup-policy": {
+      "get": {
+        "operationId": "getSignupPolicy",
+        "summary": "Inspect current V1 user registration policy (waitlist vs open self-service)",
+        "responses": {
+          "200": {
+            "description": "Current signup policy"
+          }
+        }
+      }
+    },
+    "/user/auth/waitlist": {
+      "post": {
+        "operationId": "submitWaitlistRequest",
+        "summary": "Record a prospective customer access request while V1 public signup is gated",
+        "responses": {
+          "202": {
+            "description": "Waitlist request recorded with an opaque WL- reference"
+          }
+        }
+      }
+    },
+    "/user/auth/login": {
+      "post": {
+        "operationId": "loginUser",
+        "summary": "Authenticate user credentials and issue host-only session or step-up MFA challenge",
+        "responses": {
+          "200": {
+            "description": "Authenticated session or MFA challenge"
+          }
+        }
+      }
+    },
+    "/user/me": {
+      "get": {
+        "operationId": "getCurrentUser",
+        "summary": "Retrieve current user profile, organizations, and active security posture",
+        "responses": {
+          "200": {
+            "description": "Current user context"
+          }
+        }
+      }
+    },
+    "/v1/kernel/usage/reserve": {
+      "post": {
+        "operationId": "reserveUsageQuota",
+        "summary": "Phase 1 of atomic 2-phase quota metering: reserve credits before task execution",
+        "responses": {
+          "200": {
+            "description": "Reservation lease created"
+          }
+        }
+      }
+    },
+    "/v1/kernel/usage/finalize": {
+      "post": {
+        "operationId": "finalizeUsageQuota",
+        "summary": "Phase 2 of atomic 2-phase quota metering: commit actual consumed credits",
+        "responses": {
+          "200": {
+            "description": "Reservation finalized"
+          }
+        }
+      }
+    },
+    "/v1/kernel/usage/fail": {
+      "post": {
+        "operationId": "failUsageQuota",
+        "summary": "Release the reserved quota of an execution that failed or was cancelled",
+        "responses": {
+          "200": {
+            "description": "Reservation released"
+          }
+        }
+      }
+    }
+  }
+}

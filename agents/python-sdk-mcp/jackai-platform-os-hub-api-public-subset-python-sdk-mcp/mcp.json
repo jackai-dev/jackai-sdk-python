@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "jackai-platform-os-hub-api-public-subset-python-sdk": {
+      "args": [
+        "-m",
+        "omniwrap_jackai_platform_os_hub_api_public_subset_mcp.server"
+      ],
+      "command": "python",
+      "env": {
+        "OMNIWRAP_MCP_ALLOWED_OPERATIONS": "",
+        "OMNIWRAP_MCP_AUTH_JSON": "{}",
+        "OMNIWRAP_MCP_BASE_URL": "",
+        "OMNIWRAP_MCP_CREDENTIAL_BEARERAUTH": "",
+        "OMNIWRAP_MCP_EXECUTE": "",
+        "OMNIWRAP_MCP_READ_ONLY": "0"
+      }
+    }
+  }
+}

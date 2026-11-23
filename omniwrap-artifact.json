@@ -1,0 +1,609 @@
+{
+  "$schema": "https://omniwrap.dev/schemas/artifact-manifest/v1.json",
+  "artifact": {
+    "capabilities": [
+      "api-key-bearer-basic-authentication",
+      "configurable-base-url",
+      "executable-sync-async-http-client",
+      "httpx-transport-injection",
+      "idempotency-key-enables-safe-retries",
+      "json-form-multipart-text-binary-content",
+      "minimum-python-3.9-runtime",
+      "raw-response-accessors-with-request-id",
+      "request-lifecycle-hooks",
+      "request-tracing-spans",
+      "resource-oriented-client-accessors",
+      "semantic-parameter-serialization",
+      "sse-and-ndjson-streaming",
+      "streaming-enforced-response-byte-limit",
+      "structured-http-errors",
+      "timeouts-and-idempotent-retries",
+      "unknown-fields-preserved-on-decoded-models"
+    ],
+    "contract_capabilities": [
+      "api-key-bearer-basic-authentication",
+      "configurable-base-url",
+      "executable-sync-async-http-client",
+      "httpx-transport-injection",
+      "idempotency-key-enables-safe-retries",
+      "json-form-multipart-text-binary-content",
+      "minimum-python-3.9-runtime",
+      "raw-response-accessors-with-request-id",
+      "request-lifecycle-hooks",
+      "request-tracing-spans",
+      "resource-oriented-client-accessors",
+      "semantic-parameter-serialization",
+      "streaming-enforced-response-byte-limit",
+      "structured-http-errors",
+      "timeouts-and-idempotent-retries",
+      "unknown-fields-preserved-on-decoded-models"
+    ],
+    "limitations": [
+      "base-url-query-and-fragment-not-supported",
+      "custom-pagination-not-generated",
+      "date-and-decimal-formats-mapped-to-string-and-floating-point",
+      "deprecation-documented-in-text-only",
+      "full-v3-005-v3-007-conformance-gates-not-yet-complete",
+      "mutual-tls-setup-not-generated",
+      "oauth-token-acquisition-not-generated",
+      "pagination-iterators-not-generated",
+      "runtime-schema-validation-not-generated",
+      "sdk-tests-not-generated",
+      "webhook-verification-not-generated",
+      "websocket-transport-not-generated"
+    ],
+    "maturity": "experimental",
+    "runtime_capabilities": [
+      "api-key-bearer-basic-authentication",
+      "configurable-base-url",
+      "executable-sync-async-http-client",
+      "httpx-transport-injection",
+      "idempotency-key-enables-safe-retries",
+      "json-form-multipart-text-binary-content",
+      "minimum-python-3.9-runtime",
+      "raw-response-accessors-with-request-id",
+      "request-lifecycle-hooks",
+      "request-tracing-spans",
+      "resource-oriented-client-accessors",
+      "semantic-parameter-serialization",
+      "sse-and-ndjson-streaming",
+      "streaming-enforced-response-byte-limit",
+      "structured-http-errors",
+      "timeouts-and-idempotent-retries",
+      "unknown-fields-preserved-on-decoded-models"
+    ],
+    "type": "python-sdk",
+    "vocabulary_features": [
+      {
+        "details": {
+          "capabilities": [
+            "api-key-bearer-basic-authentication"
+          ],
+          "limitations": []
+        },
+        "id": "auth.api-key-bearer-basic",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [],
+          "limitations": [
+            "mutual-tls-setup-not-generated"
+          ]
+        },
+        "id": "auth.mutual-tls",
+        "sense": "absent"
+      },
+      {
+        "details": {
+          "capabilities": [],
+          "limitations": [
+            "oauth-token-acquisition-not-generated"
+          ]
+        },
+        "id": "auth.oauth",
+        "sense": "absent"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "executable-sync-async-http-client"
+          ],
+          "limitations": []
+        },
+        "id": "client.async",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "executable-sync-async-http-client"
+          ],
+          "limitations": []
+        },
+        "id": "client.executable",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "resource-oriented-client-accessors"
+          ],
+          "limitations": []
+        },
+        "id": "client.resource-accessors",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "httpx-transport-injection"
+          ],
+          "limitations": []
+        },
+        "id": "client.transport-injection",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [],
+          "limitations": [
+            "full-v3-005-v3-007-conformance-gates-not-yet-complete"
+          ]
+        },
+        "id": "conformance.gates-complete",
+        "sense": "absent"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "structured-http-errors"
+          ],
+          "limitations": []
+        },
+        "id": "errors.typed",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [],
+          "limitations": [
+            "date-and-decimal-formats-mapped-to-string-and-floating-point"
+          ]
+        },
+        "id": "models.dates-decimals",
+        "sense": "absent"
+      },
+      {
+        "details": {
+          "capabilities": [],
+          "limitations": [
+            "deprecation-documented-in-text-only"
+          ]
+        },
+        "id": "models.deprecation",
+        "sense": "partial"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "unknown-fields-preserved-on-decoded-models"
+          ],
+          "limitations": []
+        },
+        "id": "models.extensible",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [],
+          "limitations": [
+            "runtime-schema-validation-not-generated"
+          ]
+        },
+        "id": "models.runtime-validation",
+        "sense": "absent"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "request-lifecycle-hooks",
+            "request-tracing-spans"
+          ],
+          "limitations": []
+        },
+        "id": "observability.request-hooks",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [],
+          "limitations": [
+            "pagination-iterators-not-generated"
+          ]
+        },
+        "id": "pagination.auto-iteration",
+        "sense": "absent"
+      },
+      {
+        "details": {
+          "capabilities": [],
+          "limitations": [
+            "custom-pagination-not-generated"
+          ]
+        },
+        "id": "pagination.custom",
+        "sense": "absent"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "idempotency-key-enables-safe-retries"
+          ],
+          "limitations": []
+        },
+        "id": "resilience.idempotency-keys",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "timeouts-and-idempotent-retries"
+          ],
+          "limitations": []
+        },
+        "id": "resilience.retries",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "timeouts-and-idempotent-retries"
+          ],
+          "limitations": []
+        },
+        "id": "resilience.timeouts",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "minimum-python-3.9-runtime"
+          ],
+          "limitations": []
+        },
+        "id": "runtime.minimum-version",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "streaming-enforced-response-byte-limit"
+          ],
+          "limitations": []
+        },
+        "id": "streaming.byte-limit",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "raw-response-accessors-with-request-id"
+          ],
+          "limitations": []
+        },
+        "id": "streaming.raw-response",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "sse-and-ndjson-streaming"
+          ],
+          "limitations": []
+        },
+        "id": "streaming.sse",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [],
+          "limitations": [
+            "websocket-transport-not-generated"
+          ]
+        },
+        "id": "streaming.websocket",
+        "sense": "absent"
+      },
+      {
+        "details": {
+          "capabilities": [],
+          "limitations": [
+            "sdk-tests-not-generated"
+          ]
+        },
+        "id": "testing.generated-tests",
+        "sense": "absent"
+      },
+      {
+        "details": {
+          "capabilities": [],
+          "limitations": [
+            "webhook-verification-not-generated"
+          ]
+        },
+        "id": "webhook.verification",
+        "sense": "absent"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "configurable-base-url"
+          ],
+          "limitations": [
+            "base-url-query-and-fragment-not-supported"
+          ]
+        },
+        "id": "wire.base-url",
+        "sense": "partial"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "semantic-parameter-serialization"
+          ],
+          "limitations": []
+        },
+        "id": "wire.parameter-serialization",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "json-form-multipart-text-binary-content"
+          ],
+          "limitations": []
+        },
+        "id": "wire.request-content",
+        "sense": "present"
+      }
+    ],
+    "vocabulary_version": "1.21.0"
+  },
+  "files": {
+    "AGENT_SESSION.md": "38e5418a05cfc8bf61a1a9b6549a7768386d7288ffa3fe5869d42af336111c99",
+    "LICENSE": "fb11dfcf40507855f2fbe0fdcee036cfe549b3ef7e52ebeb09e0dd66d552a128",
+    "README.md": "711f95b746e27a3093106533c96e0af1e0111a3d613f4e1f4bc4e06efe9e99f0",
+    "api.md": "3c4f74a05af963ccc6aa60517c99dc01329bc2fc944e785232f58bb563d5ce10",
+    "jackai_sdk_sdk/__init__.py": "80b4077381b5273f568166bad0d6f0d071925c76036fafde6c9cc0c6a918f064",
+    "jackai_sdk_sdk/_client.py": "e52d7651d4f71bca1d9a0023e5fabab859838523591745e95f57304395bdf15f",
+    "jackai_sdk_sdk/_core.py": "dd8a047bc1f11521155edf544647a80c81b5ea2e3153a10cd534b81cd6def21c",
+    "jackai_sdk_sdk/_models.py": "61b599032886f1bc4136246d1859c495742e87a8427e15fea4cfd0acf93379e3",
+    "jackai_sdk_sdk/_raw.py": "0070bede5825872b603a94c6cfb392724693f656638494f3095c23c59812a63d",
+    "jackai_sdk_sdk/agent-session.json": "73bf72af6e81d2cf075e7c87b1e0558c52d30b0e0827a79fcadf946ee18f3578",
+    "jackai_sdk_sdk/agent_session.py": "da126c15489601fe91fcfa4d2e2c4d378e16aad2b6692d9d0017521de802a05a",
+    "jackai_sdk_sdk/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jackai_sdk_sdk/resources/__init__.py": "8f1f036f047520fc5104bebb1bd33f5654190e4aef4201bc73f2373456811a5e",
+    "jackai_sdk_sdk/resources/health.py": "b9c5d7b8c7e8388e43519296b5ea46a3cef3ae54dfd48e648bd7706c11dee9c2",
+    "jackai_sdk_sdk/resources/kernel.py": "45a2168e62d2cddf8eef78cb01089b5cbc3b08d5c0afae911a260396643c0dff",
+    "jackai_sdk_sdk/resources/user.py": "9f5a39b24a82ea3605a56ece0cb9b857398ac99cbbbabe7db0239e8b7819d015",
+    "pyproject.toml": "4adc13b0b6916a47514968c0a3ca9b436587c56cbfe9caca94e5c583a71c075d"
+  },
+  "generator": {
+    "name": "omniwrap",
+    "version": "2.0.0"
+  },
+  "license": {
+    "id": null,
+    "kind": "proprietary",
+    "sha256": "fb11dfcf40507855f2fbe0fdcee036cfe549b3ef7e52ebeb09e0dd66d552a128"
+  },
+  "manifest_version": "1.3.0",
+  "security": {
+    "automatic_token_acquisition": false,
+    "credentials_persisted": false,
+    "cross_origin_pagination": "denied",
+    "network_access": "only when caller invokes an SDK operation",
+    "transport_injection": true
+  },
+  "source": {
+    "diagnostics": [],
+    "diagnostics_omitted_count": 0,
+    "diagnostics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "ecosystem": "semantic",
+    "legacy_ir_sha256": null,
+    "location": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358",
+    "name": "JackAI Platform OS Hub API (public subset)",
+    "normalization_diagnostic_count": 0,
+    "package_metadata": {
+      "contact_email": null,
+      "contact_name": null,
+      "contact_url": null,
+      "license_identifier": null,
+      "license_name": null,
+      "license_url": null,
+      "provenance": null,
+      "terms_of_service_url": null
+    },
+    "projection_loss_count": 0,
+    "provenance": [
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 10,
+        "pointer": "/servers/0/url",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 29,
+        "pointer": "/paths/~1health/get",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 40,
+        "pointer": "/paths/~1user~1auth~1signup-policy/get",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 73,
+        "pointer": "/paths/~1user~1me/get",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 106,
+        "pointer": "/paths/~1v1~1kernel~1usage~1fail/post",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 51,
+        "pointer": "/paths/~1user~1auth~1waitlist/post",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 62,
+        "pointer": "/paths/~1user~1auth~1login/post",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 84,
+        "pointer": "/paths/~1v1~1kernel~1usage~1reserve/post",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 95,
+        "pointer": "/paths/~1v1~1kernel~1usage~1finalize/post",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 110,
+        "pointer": "/paths/~1v1~1kernel~1usage~1fail/post/responses/200",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 33,
+        "pointer": "/paths/~1health/get/responses/200",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 44,
+        "pointer": "/paths/~1user~1auth~1signup-policy/get/responses/200",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 55,
+        "pointer": "/paths/~1user~1auth~1waitlist/post/responses/202",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 66,
+        "pointer": "/paths/~1user~1auth~1login/post/responses/200",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 77,
+        "pointer": "/paths/~1user~1me/get/responses/200",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 88,
+        "pointer": "/paths/~1v1~1kernel~1usage~1reserve/post/responses/200",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 99,
+        "pointer": "/paths/~1v1~1kernel~1usage~1finalize/post/responses/200",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 21,
+        "confidence": 1.0,
+        "line": 21,
+        "pointer": "/components/securitySchemes/bearerAuth",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      }
+    ],
+    "provenance_count": 18,
+    "provenance_omitted_count": 0,
+    "provenance_sha256": "8101a07dfa350d3521f16631b33c301d880f753bb1751d16ad9b944f13b9208f",
+    "semantic_fingerprint": "c7ca5e5ebb4c092910ec72b371e188303358c5e34d2908c0a88f782a241162cf",
+    "semantic_ir_sha256": "c7ca5e5ebb4c092910ec72b371e188303358c5e34d2908c0a88f782a241162cf",
+    "semantic_ir_version": "1.14.0",
+    "version": "1.0.0"
+  },
+  "surface": {
+    "operation_methods": {
+      "failUsageQuota": {
+        "flat": "fail_usage_quota",
+        "raw": "with_raw_response.fail_usage_quota",
+        "resource": "kernel.fail_usage_quota"
+      },
+      "finalizeUsageQuota": {
+        "flat": "finalize_usage_quota",
+        "raw": "with_raw_response.finalize_usage_quota",
+        "resource": "kernel.finalize_usage_quota"
+      },
+      "getCurrentUser": {
+        "flat": "get_current_user",
+        "raw": "with_raw_response.get_current_user",
+        "resource": "user.get_current"
+      },
+      "getHealth": {
+        "flat": "get_health",
+        "raw": "with_raw_response.get_health",
+        "resource": "health.get"
+      },
+      "getSignupPolicy": {
+        "flat": "get_signup_policy",
+        "raw": "with_raw_response.get_signup_policy",
+        "resource": "user.get_signup_policy"
+      },
+      "loginUser": {
+        "flat": "login_user",
+        "raw": "with_raw_response.login_user",
+        "resource": "user.login"
+      },
+      "reserveUsageQuota": {
+        "flat": "reserve_usage_quota",
+        "raw": "with_raw_response.reserve_usage_quota",
+        "resource": "kernel.reserve_usage_quota"
+      },
+      "submitWaitlistRequest": {
+        "flat": "submit_waitlist_request",
+        "raw": "with_raw_response.submit_waitlist_request",
+        "resource": "user.submit_waitlist_request"
+      }
+    }
+  }
+}

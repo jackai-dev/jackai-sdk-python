@@ -1,0 +1,114 @@
+{
+  "lifecycle": {
+    "initialState": "working",
+    "interactiveState": "input_required",
+    "terminalStates": [
+      "completed",
+      "failed",
+      "cancelled",
+      "reconciliation_required"
+    ],
+    "transitions": {
+      "cancelled": [],
+      "completed": [],
+      "failed": [],
+      "input_required": [
+        "cancelled",
+        "completed",
+        "failed",
+        "reconciliation_required",
+        "working"
+      ],
+      "reconciliation_required": [],
+      "working": [
+        "cancelled",
+        "completed",
+        "failed",
+        "input_required",
+        "reconciliation_required",
+        "working"
+      ]
+    }
+  },
+  "operations": [
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "failUsageQuota",
+      "path": "/v1/kernel/usage/fail",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "finalizeUsageQuota",
+      "path": "/v1/kernel/usage/finalize",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": true,
+      "method": "GET",
+      "operationId": "getCurrentUser",
+      "path": "/user/me",
+      "readOnly": true,
+      "reconciliationOnInterrupt": false
+    },
+    {
+      "idempotent": true,
+      "method": "GET",
+      "operationId": "getHealth",
+      "path": "/health",
+      "readOnly": true,
+      "reconciliationOnInterrupt": false
+    },
+    {
+      "idempotent": true,
+      "method": "GET",
+      "operationId": "getSignupPolicy",
+      "path": "/user/auth/signup-policy",
+      "readOnly": true,
+      "reconciliationOnInterrupt": false
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "loginUser",
+      "path": "/user/auth/login",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "reserveUsageQuota",
+      "path": "/v1/kernel/usage/reserve",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "submitWaitlistRequest",
+      "path": "/user/auth/waitlist",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    }
+  ],
+  "pollIntervalMs": 1000,
+  "reconciliationPolicy": {
+    "automaticBlindRetry": false,
+    "unconfirmedNonIdempotentWriteState": "reconciliation_required"
+  },
+  "schema": "omniwrap.mcp-tasks/v1",
+  "specificationVersion": "2026-07-28",
+  "states": [
+    "working",
+    "input_required",
+    "completed",
+    "failed",
+    "cancelled",
+    "reconciliation_required"
+  ]
+}

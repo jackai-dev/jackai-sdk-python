@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "jackai-platform-os-hub-api-public-subset-knowledge": {
+      "command": "python",
+      "args": [
+        "server.py"
+      ]
+    }
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "documents": [
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_c7ca5e5ebb4c_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.fail_usage_quota()",
+      "id": "operation:failUsageQuota",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "failUsageQuota",
+      "parameters": [],
+      "path": "/v1/kernel/usage/fail",
+      "request_media": [],
+      "responses": [
+        {
+          "description": "Reservation released",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "fail_usage_quota",
+      "search_text": "failUsageQuota POST /v1/kernel/usage/fail Release the reserved quota of an execution that failed or was cancelled fail_usage_quota write 200 bearerAuth",
+      "summary": "Release the reserved quota of an execution that failed or was cancelled",
+      "text": "POST /v1/kernel/usage/fail\noperation_id: failUsageQuota\nsummary: Release the reserved quota of an execution that failed or was cancelled\nsdk_method: fail_usage_quota\naccess: write\nresponses: 200\nauth: bearerAuth\nexample:\nfrom omniwrap_mcp_c7ca5e5ebb4c_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.fail_usage_quota()"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_c7ca5e5ebb4c_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.finalize_usage_quota()",
+      "id": "operation:finalizeUsageQuota",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "finalizeUsageQuota",
+      "parameters": [],
+      "path": "/v1/kernel/usage/finalize",
+      "request_media": [],
+      "responses": [
+        {
+          "description": "Reservation finalized",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "finalize_usage_quota",
+      "search_text": "finalizeUsageQuota POST /v1/kernel/usage/finalize Phase 2 of atomic 2-phase quota metering: commit actual consumed credits finalize_usage_quota write 200 bearerAuth",
+      "summary": "Phase 2 of atomic 2-phase quota metering: commit actual consumed credits",
+      "text": "POST /v1/kernel/usage/finalize\noperation_id: finalizeUsageQuota\nsummary: Phase 2 of atomic 2-phase quota metering: commit actual consumed credits\nsdk_method: finalize_usage_quota\naccess: write\nresponses: 200\nauth: bearerAuth\nexample:\nfrom omniwrap_mcp_c7ca5e5ebb4c_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.finalize_usage_quota()"
+    },
+    {
+      "access": "read-only",
+      "auth": [
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_c7ca5e5ebb4c_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.get_current_user()",
+      "id": "operation:getCurrentUser",
+      "kind": "operation",
+      "method": "GET",
+      "operation_id": "getCurrentUser",
+      "parameters": [],
+      "path": "/user/me",
+      "request_media": [],
+      "responses": [
+        {
+          "description": "Current user context",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "get_current_user",
+      "search_text": "getCurrentUser GET /user/me Retrieve current user profile, organizations, and active security posture get_current_user read-only 200 bearerAuth",
+      "summary": "Retrieve current user profile, organizations, and active security posture",
+      "text": "GET /user/me\noperation_id: getCurrentUser\nsummary: Retrieve current user profile, organizations, and active security posture\nsdk_method: get_current_user\naccess: read-only\nresponses: 200\nauth: bearerAuth\nexample:\nfrom omniwrap_mcp_c7ca5e5ebb4c_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.get_current_user()"
+    },
+    {
+      "access": "read-only",
+      "auth": [
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_c7ca5e5ebb4c_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.get_health()",
+      "id": "operation:getHealth",
+      "kind": "operation",
+      "method": "GET",
+      "operation_id": "getHealth",
+      "parameters": [],
+      "path": "/health",
+      "request_media": [],
+      "responses": [
+        {
+          "description": "Hub liveness status",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "get_health",
+      "search_text": "getHealth GET /health Check that the Hub API process is up get_health read-only 200 bearerAuth",
+      "summary": "Check that the Hub API process is up",
+      "text": "GET /health\noperation_id: getHealth\nsummary: Check that the Hub API process is up\nsdk_method: get_health\naccess: read-only\nresponses: 200\nauth: bearerAuth\nexample:\nfrom omniwrap_mcp_c7ca5e5ebb4c_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.get_health()"
+    },
+    {
+      "access": "read-only",
+      "auth": [
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_c7ca5e5ebb4c_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.get_signup_policy()",
+      "id": "operation:getSignupPolicy",
+      "kind": "operation",
+      "method": "GET",
+      "operation_id": "getSignupPolicy",
+      "parameters": [],
+      "path": "/user/auth/signup-policy",
+      "request_media": [],
+      "responses": [
+        {
+          "description": "Current signup policy",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "get_signup_policy",
+      "search_text": "getSignupPolicy GET /user/auth/signup-policy Inspect current V1 user registration policy (waitlist vs open self-service) get_signup_policy read-only 200 bearerAuth",
+      "summary": "Inspect current V1 user registration policy (waitlist vs open self-service)",
+      "text": "GET /user/auth/signup-policy\noperation_id: getSignupPolicy\nsummary: Inspect current V1 user registration policy (waitlist vs open self-service)\nsdk_method: get_signup_policy\naccess: read-only\nresponses: 200\nauth: bearerAuth\nexample:\nfrom omniwrap_mcp_c7ca5e5ebb4c_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.get_signup_policy()"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_c7ca5e5ebb4c_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.login_user()",
+      "id": "operation:loginUser",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "loginUser",
+      "parameters": [],
+      "path": "/user/auth/login",
+      "request_media": [],
+      "responses": [
+        {
+          "description": "Authenticated session or MFA challenge",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "login_user",
+      "search_text": "loginUser POST /user/auth/login Authenticate user credentials and issue host-only session or step-up MFA challenge login_user write 200 bearerAuth",
+      "summary": "Authenticate user credentials and issue host-only session or step-up MFA challenge",
+      "text": "POST /user/auth/login\noperation_id: loginUser\nsummary: Authenticate user credentials and issue host-only session or step-up MFA challenge\nsdk_method: login_user\naccess: write\nresponses: 200\nauth: bearerAuth\nexample:\nfrom omniwrap_mcp_c7ca5e5ebb4c_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.login_user()"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_c7ca5e5ebb4c_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.reserve_usage_quota()",
+      "id": "operation:reserveUsageQuota",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "reserveUsageQuota",
+      "parameters": [],
+      "path": "/v1/kernel/usage/reserve",
+      "request_media": [],
+      "responses": [
+        {
+          "description": "Reservation lease created",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "reserve_usage_quota",
+      "search_text": "reserveUsageQuota POST /v1/kernel/usage/reserve Phase 1 of atomic 2-phase quota metering: reserve credits before task execution reserve_usage_quota write 200 bearerAuth",
+      "summary": "Phase 1 of atomic 2-phase quota metering: reserve credits before task execution",
+      "text": "POST /v1/kernel/usage/reserve\noperation_id: reserveUsageQuota\nsummary: Phase 1 of atomic 2-phase quota metering: reserve credits before task execution\nsdk_method: reserve_usage_quota\naccess: write\nresponses: 200\nauth: bearerAuth\nexample:\nfrom omniwrap_mcp_c7ca5e5ebb4c_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.reserve_usage_quota()"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_c7ca5e5ebb4c_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.submit_waitlist_request()",
+      "id": "operation:submitWaitlistRequest",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "submitWaitlistRequest",
+      "parameters": [],
+      "path": "/user/auth/waitlist",
+      "request_media": [],
+      "responses": [
+        {
+          "description": "Waitlist request recorded with an opaque WL- reference",
+          "status_code": "202"
+        }
+      ],
+      "sdk_method": "submit_waitlist_request",
+      "search_text": "submitWaitlistRequest POST /user/auth/waitlist Record a prospective customer access request while V1 public signup is gated submit_waitlist_request write 202 bearerAuth",
+      "summary": "Record a prospective customer access request while V1 public signup is gated",
+      "text": "POST /user/auth/waitlist\noperation_id: submitWaitlistRequest\nsummary: Record a prospective customer access request while V1 public signup is gated\nsdk_method: submit_waitlist_request\naccess: write\nresponses: 202\nauth: bearerAuth\nexample:\nfrom omniwrap_mcp_c7ca5e5ebb4c_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.submit_waitlist_request()"
+    }
+  ],
+  "ranking": "deterministic-bm25-v1",
+  "schema": "omniwrap.mcp-docs/1",
+  "server_name": "jackai-platform-os-hub-api-public-subset-python-sdk"
+}

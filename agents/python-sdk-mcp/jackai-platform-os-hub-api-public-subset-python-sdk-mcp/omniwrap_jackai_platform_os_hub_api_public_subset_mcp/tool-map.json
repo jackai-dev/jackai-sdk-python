@@ -1,0 +1,1556 @@
+{
+  "access_policy": {
+    "allowlist_environment": "OMNIWRAP_MCP_ALLOWED_OPERATIONS",
+    "default": "deny-all",
+    "granularity": "exact-operation-id",
+    "read_only_environment": "OMNIWRAP_MCP_READ_ONLY",
+    "read_only_tools": 3,
+    "write_tools": 5
+  },
+  "auth_schemes": [
+    "bearerAuth"
+  ],
+  "contract_fingerprint": "c7ca5e5ebb4c092910ec72b371e188303358c5e34d2908c0a88f782a241162cf",
+  "credential_descriptors": {
+    "bearerAuth": {
+      "scheme": "bearer",
+      "type": "http"
+    }
+  },
+  "credential_environment": {
+    "auth_json": "OMNIWRAP_MCP_AUTH_JSON",
+    "schemes": {
+      "bearerAuth": "OMNIWRAP_MCP_CREDENTIAL_BEARERAUTH"
+    }
+  },
+  "mode": "code",
+  "omitted_operations": [],
+  "operations": [
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/v1/kernel/usage/fail"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [],
+      "content_types": [],
+      "description": "Call the bundled Python SDK operation. Release the reserved quota of an execution that failed or was cancelled",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/v1/kernel/usage/fail"
+        ]
+      },
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "failUsageQuota",
+      "operation_id": "failUsageQuota",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "failUsageQuota"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/kernel/usage/fail",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "fail_usage_quota",
+      "security": [
+        [
+          "bearerAuth"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Release the reserved quota of an execution that failed or was cancelled",
+      "title": "failUsageQuota"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/v1/kernel/usage/finalize"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [],
+      "content_types": [],
+      "description": "Call the bundled Python SDK operation. Phase 2 of atomic 2-phase quota metering: commit actual consumed credits",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/v1/kernel/usage/finalize"
+        ]
+      },
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "finalizeUsageQuota",
+      "operation_id": "finalizeUsageQuota",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "finalizeUsageQuota"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/kernel/usage/finalize",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "finalize_usage_quota",
+      "security": [
+        [
+          "bearerAuth"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Phase 2 of atomic 2-phase quota metering: commit actual consumed credits",
+      "title": "finalizeUsageQuota"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": true,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": true,
+          "writes": []
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "read-only",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "bindings": [],
+      "content_types": [],
+      "description": "Call the bundled Python SDK operation. Retrieve current user profile, organizations, and active security posture",
+      "effects": {
+        "compensation": null,
+        "idempotent": true,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": true,
+        "writes": []
+      },
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "method": "GET",
+      "name": "getCurrentUser",
+      "operation_id": "getCurrentUser",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "getCurrentUser"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/user/me",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "get_current_user",
+      "security": [
+        [
+          "bearerAuth"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Retrieve current user profile, organizations, and active security posture",
+      "title": "getCurrentUser"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": true,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": true,
+          "writes": []
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "read-only",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "bindings": [],
+      "content_types": [],
+      "description": "Call the bundled Python SDK operation. Check that the Hub API process is up",
+      "effects": {
+        "compensation": null,
+        "idempotent": true,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": true,
+        "writes": []
+      },
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "method": "GET",
+      "name": "getHealth",
+      "operation_id": "getHealth",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "getHealth"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/health",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "get_health",
+      "security": [
+        [
+          "bearerAuth"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Check that the Hub API process is up",
+      "title": "getHealth"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": true,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": true,
+          "writes": []
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "read-only",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "bindings": [],
+      "content_types": [],
+      "description": "Call the bundled Python SDK operation. Inspect current V1 user registration policy (waitlist vs open self-service)",
+      "effects": {
+        "compensation": null,
+        "idempotent": true,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": true,
+        "writes": []
+      },
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "method": "GET",
+      "name": "getSignupPolicy",
+      "operation_id": "getSignupPolicy",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "getSignupPolicy"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/user/auth/signup-policy",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "get_signup_policy",
+      "security": [
+        [
+          "bearerAuth"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Inspect current V1 user registration policy (waitlist vs open self-service)",
+      "title": "getSignupPolicy"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/user/auth/login"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [],
+      "content_types": [],
+      "description": "Call the bundled Python SDK operation. Authenticate user credentials and issue host-only session or step-up MFA challenge",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/user/auth/login"
+        ]
+      },
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "loginUser",
+      "operation_id": "loginUser",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "loginUser"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/user/auth/login",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "login_user",
+      "security": [
+        [
+          "bearerAuth"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Authenticate user credentials and issue host-only session or step-up MFA challenge",
+      "title": "loginUser"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/v1/kernel/usage/reserve"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [],
+      "content_types": [],
+      "description": "Call the bundled Python SDK operation. Phase 1 of atomic 2-phase quota metering: reserve credits before task execution",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/v1/kernel/usage/reserve"
+        ]
+      },
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "reserveUsageQuota",
+      "operation_id": "reserveUsageQuota",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "reserveUsageQuota"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/kernel/usage/reserve",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "reserve_usage_quota",
+      "security": [
+        [
+          "bearerAuth"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Phase 1 of atomic 2-phase quota metering: reserve credits before task execution",
+      "title": "reserveUsageQuota"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/user/auth/waitlist"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [],
+      "content_types": [],
+      "description": "Call the bundled Python SDK operation. Record a prospective customer access request while V1 public signup is gated",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/user/auth/waitlist"
+        ]
+      },
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "submitWaitlistRequest",
+      "operation_id": "submitWaitlistRequest",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "submitWaitlistRequest"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/user/auth/waitlist",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "202",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "submit_waitlist_request",
+      "security": [
+        [
+          "bearerAuth"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Record a prospective customer access request while V1 public signup is gated",
+      "title": "submitWaitlistRequest"
+    }
+  ],
+  "schema": "omniwrap.python-sdk-mcp/1",
+  "sdk": {
+    "language": "python",
+    "module": "omniwrap_mcp_c7ca5e5ebb4c_sdk"
+  },
+  "server_name": "jackai-platform-os-hub-api-public-subset-python-sdk",
+  "tools": [
+    {
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "description": "Runs a bounded Python snippet against the bundled generated Python SDK client in a separate interpreter under an operating-system sandbox (a Windows AppContainer with no network capability inside a Job Object, or Linux bubblewrap); the isolated child has no direct network and its SDK requests are forwarded to the server, which alone reaches the configured API host and holds the credentials. Enabled by default only when that isolation is available; otherwise it returns an execute_disabled refusal and OMNIWRAP_MCP_EXECUTE=enabled cannot bypass isolation. The names `client`, `sdk` and `tmp_path` are available; set `result` to a JSON value to return it.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "description": "Python source executed against the bundled SDK. Use the `client` object, write to files only under `tmp_path`, and assign a JSON-serializable value to `result`.",
+            "maxLength": 65536,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ],
+        "type": "object"
+      },
+      "name": "execute",
+      "outputSchema": {
+        "additionalProperties": true,
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "exit_code": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "result": {},
+          "stderr": {
+            "type": "string"
+          },
+          "stdout": {
+            "type": "string"
+          },
+          "timed_out": {
+            "type": "boolean"
+          },
+          "truncated_stderr": {
+            "type": "boolean"
+          },
+          "truncated_stdout": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "title": "Execute Python against the SDK"
+    },
+    {
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "description": "Search contract-derived documentation for operations, parameters, schemas, error mappings, authentication schemes and SDK method names. Deterministic keyword ranking with bounded results.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "limit": {
+            "default": 5,
+            "maximum": 20,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "query": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "type": "object"
+      },
+      "name": "search_docs",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "additionalProperties": true,
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "method": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "operation_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "path": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "score": {
+                  "type": "number"
+                },
+                "sdk_method": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "summary": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "query": {
+            "type": "string"
+          },
+          "ranking": {
+            "type": "string"
+          },
+          "total": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "query",
+          "total",
+          "ranking",
+          "items"
+        ],
+        "type": "object"
+      },
+      "title": "Search the API reference"
+    }
+  ],
+  "version": "1.0.0"
+}

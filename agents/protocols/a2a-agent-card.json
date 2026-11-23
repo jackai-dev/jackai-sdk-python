@@ -1,0 +1,216 @@
+{
+  "authentication": {
+    "details": [
+      {
+        "name": "bearerAuth",
+        "scheme": "bearer",
+        "type": "http"
+      }
+    ],
+    "schemes": [
+      "bearer"
+    ]
+  },
+  "capabilities": {
+    "pushNotifications": false,
+    "stateTransitionHistory": true,
+    "streaming": true
+  },
+  "defaultInputModes": [
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "application/json"
+  ],
+  "description": "OpenAPI 3.1.0 description of the JackAI Platform OS Hub API operations these SDKs wrap (`api.jackaisaas.com`): liveness, waitlist-gated registration, sign-in, the current user, and reserve/finalize/fail usage metering. Only routes the Hub serves are listed.",
+  "name": "JackAI Platform OS Hub API (public subset)",
+  "schemaVersion": "1.0.0",
+  "skills": [
+    {
+      "description": "Release the reserved quota of an execution that failed or was cancelled",
+      "effect": "write",
+      "id": "failUsageQuota",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "c7c69ffea7e3e6af99994c9347a2f29c4a558bdf8854ac3b61df817cbadcd1f7",
+      "method": "POST",
+      "name": "Release the reserved quota of an execution that failed or was cancelled",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "c441000efce7e6d1438ca986f532e4aad19c2d038edd4890a25793fbc7db4dcd",
+      "path": "/v1/kernel/usage/fail",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST"
+      ]
+    },
+    {
+      "description": "Phase 2 of atomic 2-phase quota metering: commit actual consumed credits",
+      "effect": "write",
+      "id": "finalizeUsageQuota",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "c7c69ffea7e3e6af99994c9347a2f29c4a558bdf8854ac3b61df817cbadcd1f7",
+      "method": "POST",
+      "name": "Phase 2 of atomic 2-phase quota metering: commit actual consumed credits",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "4b671907f64e4f1c279a517901803a63492fa5d3136596c92d6ec5f289366ea8",
+      "path": "/v1/kernel/usage/finalize",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST"
+      ]
+    },
+    {
+      "description": "Retrieve current user profile, organizations, and active security posture",
+      "effect": "read",
+      "id": "getCurrentUser",
+      "idempotent": true,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "c7c69ffea7e3e6af99994c9347a2f29c4a558bdf8854ac3b61df817cbadcd1f7",
+      "method": "GET",
+      "name": "Retrieve current user profile, organizations, and active security posture",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "28176f936ba3294162949ab429a2ecb021b868d85d3b15330973d374b93448c0",
+      "path": "/user/me",
+      "readOnly": true,
+      "tags": [
+        "effect:read",
+        "idempotent",
+        "method:GET"
+      ]
+    },
+    {
+      "description": "Check that the Hub API process is up",
+      "effect": "read",
+      "id": "getHealth",
+      "idempotent": true,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "c7c69ffea7e3e6af99994c9347a2f29c4a558bdf8854ac3b61df817cbadcd1f7",
+      "method": "GET",
+      "name": "Check that the Hub API process is up",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "6245371779ee31e3c893769106c9a6eb23cf121d5dcf973fcd48ca8f84827364",
+      "path": "/health",
+      "readOnly": true,
+      "tags": [
+        "effect:read",
+        "idempotent",
+        "method:GET"
+      ]
+    },
+    {
+      "description": "Inspect current V1 user registration policy (waitlist vs open self-service)",
+      "effect": "read",
+      "id": "getSignupPolicy",
+      "idempotent": true,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "c7c69ffea7e3e6af99994c9347a2f29c4a558bdf8854ac3b61df817cbadcd1f7",
+      "method": "GET",
+      "name": "Inspect current V1 user registration policy (waitlist vs open self-service)",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "c8e7221bbeba9e172b87bfe17a61454a28a95f7afb18b02282ca489e06589ea6",
+      "path": "/user/auth/signup-policy",
+      "readOnly": true,
+      "tags": [
+        "effect:read",
+        "idempotent",
+        "method:GET"
+      ]
+    },
+    {
+      "description": "Authenticate user credentials and issue host-only session or step-up MFA challenge",
+      "effect": "write",
+      "id": "loginUser",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "c7c69ffea7e3e6af99994c9347a2f29c4a558bdf8854ac3b61df817cbadcd1f7",
+      "method": "POST",
+      "name": "Authenticate user credentials and issue host-only session or step-up MFA challenge",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "f36bb0e25f96c26d436ce75358ff7b1e4894cd078d32c1b409e9bc8d7f077200",
+      "path": "/user/auth/login",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST"
+      ]
+    },
+    {
+      "description": "Phase 1 of atomic 2-phase quota metering: reserve credits before task execution",
+      "effect": "write",
+      "id": "reserveUsageQuota",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "c7c69ffea7e3e6af99994c9347a2f29c4a558bdf8854ac3b61df817cbadcd1f7",
+      "method": "POST",
+      "name": "Phase 1 of atomic 2-phase quota metering: reserve credits before task execution",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "bcee76a49aa9d187304c1a15a0c669e512fbc9b4b151c19e99fa0fcd026a4a83",
+      "path": "/v1/kernel/usage/reserve",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST"
+      ]
+    },
+    {
+      "description": "Record a prospective customer access request while V1 public signup is gated",
+      "effect": "write",
+      "id": "submitWaitlistRequest",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "c7c69ffea7e3e6af99994c9347a2f29c4a558bdf8854ac3b61df817cbadcd1f7",
+      "method": "POST",
+      "name": "Record a prospective customer access request while V1 public signup is gated",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "cd4c638d6039c0a0aef325f9422d07b25fc7d585a1a1c94989d9e39c2b4245b7",
+      "path": "/user/auth/waitlist",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST"
+      ]
+    }
+  ],
+  "url": "https://api.jackaisaas.com",
+  "version": "1.0.0"
+}

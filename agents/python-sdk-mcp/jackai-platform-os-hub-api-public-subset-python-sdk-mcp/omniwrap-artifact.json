@@ -1,0 +1,291 @@
+{
+  "$schema": "https://omniwrap.dev/schemas/artifact-manifest/v1.json",
+  "artifact": {
+    "capabilities": [
+      "bounded-http-response-streams",
+      "bundled-python-sdk-companion",
+      "contract-derived-docs-search",
+      "credential-environment-names-recorded",
+      "default-deny-operation-allowlist",
+      "python-sdk-operation-execution",
+      "read-only-write-tool-classification",
+      "redacted-structured-call-audit",
+      "sandboxed-python-code-execution",
+      "stdio-jsonrpc",
+      "two-tool-default-surface",
+      "typed-operation-input-schemas",
+      "typed-operation-output-schemas"
+    ],
+    "limitations": [
+      "Access classification and MCP hints come from the Semantic IR effect signature (inferred, or declared through x-omniwrap-effects) or the x-omniwrap-mcp-access extension; requires_confirmation is advisory and the server does not itself block irreversible calls.",
+      "Each SDK operation a snippet calls through the provided client is authorized by the same allowlist, read-only switch and credential preflight as every other surface; the server also refuses forwarded write-method requests when the read-only switch is on.",
+      "Execution uses the bundled Python SDK regardless of the separately selected SDK language.",
+      "One operation per call; automatic pagination, OAuth token acquisition and Streamable HTTP MCP are not supplied.",
+      "Output schemas type the unwrapped JSON success response only; streamed, enveloped and non-JSON responses stay untyped with a recorded reason.",
+      "The HTTP timeout applies per connection/read operation; streaming additionally checks an elapsed deadline between received chunks.",
+      "The allowlist and read-only switch are process environment policy enforced by this application, not an operating-system sandbox.",
+      "The audit line is written to stderr; retention and forwarding belong to the MCP host.",
+      "The companion inherits the generated Python SDK's runtime and protocol limitations.",
+      "The execute tool runs each snippet under an operating-system sandbox: on Windows an AppContainer with no capabilities (no network socket of any kind, including loopback) inside a Job Object that forbids child processes and bounds memory; on Linux a bubblewrap sandbox with no network namespace, no capability, no /proc and a read-only runtime, whose seccomp filter refuses execve, fork, any clone that is not a thread, any access to another process (ptrace, process memory, pidfd), io_uring, namespaces and mounts. The snippet's file-system reach is limited to the generated SDK package, the Python runtime it needs and one per-call directory.",
+      "The isolated child performs no direct network. The bundled SDK's HTTP requests are forwarded over the stdio channel to the server process, which alone reaches the configured API host through the bounded, host-locked transport and alone holds the credentials; the child receives only opaque per-scheme placeholders, so a configured credential never enters the child and can only ever be sent to the configured host. An in-process audit hook remains inside the child as defense in depth.",
+      "Unsupported input profiles are omitted explicitly in tool-map.json; binary/multipart uploads and dynamic schema resources require dedicated adapters.",
+      "execute is ENABLED BY DEFAULT only when this operating-system isolation is available. Where it is not (the OS feature is missing, or bubblewrap is not installed), execute is DISABLED and returns an execute_disabled refusal. OMNIWRAP_MCP_EXECUTE=enabled cannot bypass isolation. Set OMNIWRAP_MCP_EXECUTE=disabled to turn execute off even where isolation is available.",
+      "search_docs ranks a generated contract-derived index with a deterministic BM25 score and returns bounded top-k results; it performs no network access."
+    ],
+    "maturity": "experimental",
+    "type": "python-sdk-mcp-server"
+  },
+  "files": {
+    "README.md": "2c43b8c1fac7062899decc297dc92edce69073b3833d51450bc82ef5f7b4d0a9",
+    "_sdk/omniwrap-mcp-c7ca5e5ebb4c-sdk/LICENSE": "fb11dfcf40507855f2fbe0fdcee036cfe549b3ef7e52ebeb09e0dd66d552a128",
+    "_sdk/omniwrap-mcp-c7ca5e5ebb4c-sdk/README.md": "a537dd719906552775fa12eb815a3b221d94e910a7eb9aea3dee7626e031fbbc",
+    "_sdk/omniwrap-mcp-c7ca5e5ebb4c-sdk/api.md": "3c4f74a05af963ccc6aa60517c99dc01329bc2fc944e785232f58bb563d5ce10",
+    "_sdk/omniwrap-mcp-c7ca5e5ebb4c-sdk/omniwrap-artifact.json": "69846e1c2e1cd50b1ef1fa1f86783a0ee6298a8c1dd4117b0acbb08c77be183a",
+    "_sdk/omniwrap-mcp-c7ca5e5ebb4c-sdk/omniwrap_mcp_c7ca5e5ebb4c_sdk/__init__.py": "d88299f0293fecfad28d094a5ae7afe5f2b6a8f5a8cfa118e3aa53c6b35c5d6d",
+    "_sdk/omniwrap-mcp-c7ca5e5ebb4c-sdk/omniwrap_mcp_c7ca5e5ebb4c_sdk/_client.py": "e52d7651d4f71bca1d9a0023e5fabab859838523591745e95f57304395bdf15f",
+    "_sdk/omniwrap-mcp-c7ca5e5ebb4c-sdk/omniwrap_mcp_c7ca5e5ebb4c_sdk/_core.py": "f71726e3c2306e6123f83da1b63cd445055e90763d3e8ff666c8db7e96119119",
+    "_sdk/omniwrap-mcp-c7ca5e5ebb4c-sdk/omniwrap_mcp_c7ca5e5ebb4c_sdk/_models.py": "61b599032886f1bc4136246d1859c495742e87a8427e15fea4cfd0acf93379e3",
+    "_sdk/omniwrap-mcp-c7ca5e5ebb4c-sdk/omniwrap_mcp_c7ca5e5ebb4c_sdk/_raw.py": "0070bede5825872b603a94c6cfb392724693f656638494f3095c23c59812a63d",
+    "_sdk/omniwrap-mcp-c7ca5e5ebb4c-sdk/omniwrap_mcp_c7ca5e5ebb4c_sdk/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "_sdk/omniwrap-mcp-c7ca5e5ebb4c-sdk/omniwrap_mcp_c7ca5e5ebb4c_sdk/resources/__init__.py": "8f1f036f047520fc5104bebb1bd33f5654190e4aef4201bc73f2373456811a5e",
+    "_sdk/omniwrap-mcp-c7ca5e5ebb4c-sdk/omniwrap_mcp_c7ca5e5ebb4c_sdk/resources/health.py": "b9c5d7b8c7e8388e43519296b5ea46a3cef3ae54dfd48e648bd7706c11dee9c2",
+    "_sdk/omniwrap-mcp-c7ca5e5ebb4c-sdk/omniwrap_mcp_c7ca5e5ebb4c_sdk/resources/kernel.py": "45a2168e62d2cddf8eef78cb01089b5cbc3b08d5c0afae911a260396643c0dff",
+    "_sdk/omniwrap-mcp-c7ca5e5ebb4c-sdk/omniwrap_mcp_c7ca5e5ebb4c_sdk/resources/user.py": "9f5a39b24a82ea3605a56ece0cb9b857398ac99cbbbabe7db0239e8b7819d015",
+    "_sdk/omniwrap-mcp-c7ca5e5ebb4c-sdk/pyproject.toml": "18dfe7a42668f39668c91bad4c17edae2ad05bb92b559d936e05ed5a93806c49",
+    "mcp.json": "ed7400e4cd16b5315523263a735621576d3c4c3d2697a6daa3ae3f0f2220da9f",
+    "omniwrap_jackai_platform_os_hub_api_public_subset_mcp/__init__.py": "2a68d8f6728cea7b2513dd295b765bdb4b528a4bd7bbccbf0f0b14dbe835a6b0",
+    "omniwrap_jackai_platform_os_hub_api_public_subset_mcp/docs-index.json": "c8f65dddfd1a46c076ffbd4396b0a3637ce54412850bd74117dc6c91b05ec1d9",
+    "omniwrap_jackai_platform_os_hub_api_public_subset_mcp/semantic-api.json": "a7b953550b035aa1a7269f3a4cf0e8fe79b80982c546c2745106498ce174f2a2",
+    "omniwrap_jackai_platform_os_hub_api_public_subset_mcp/server.py": "50a0d9a01e882f304a7b08dc86a44280362a7d94e9410b54aeb09f0be3671c4b",
+    "omniwrap_jackai_platform_os_hub_api_public_subset_mcp/tool-map.json": "4a461241b702ee435589e9f58899a5cefa7e2ce0d9d49ee6c1315f81f13fbe1f",
+    "pyproject.toml": "6daa4f63733e98d709a3559516781935451021d56ff9da9a71c7774c95deca92"
+  },
+  "generator": {
+    "name": "omniwrap",
+    "version": "2.0.0"
+  },
+  "manifest_version": "1.3.0",
+  "security": {
+    "allowlist_policy": {
+      "default": "deny-all",
+      "environment_variable": "OMNIWRAP_MCP_ALLOWED_OPERATIONS",
+      "granularity": "exact-operation-id",
+      "limitations": [
+        "Operation IDs are matched exactly and case-sensitively; no wildcard admits more than one operation.",
+        "The policy is read once per process from the environment; changing it requires restarting the server.",
+        "An allowlisted secured operation still fails closed with credential_missing until its credential variables are set."
+      ],
+      "read_only_switch": "OMNIWRAP_MCP_READ_ONLY",
+      "read_only_tools": 3,
+      "write_tools": 5
+    },
+    "allowlist_required": true,
+    "audit": {
+      "format": "json-line-per-call",
+      "records_arguments": false,
+      "records_response_bodies": false,
+      "records_secrets": false,
+      "stream": "stderr"
+    },
+    "credential_environment": {
+      "auth_json": "OMNIWRAP_MCP_AUTH_JSON",
+      "schemes": {
+        "bearerAuth": "OMNIWRAP_MCP_CREDENTIAL_BEARERAUTH"
+      }
+    },
+    "credentials_from_tool_arguments": false,
+    "execute": "enabled-when-os-isolation-available",
+    "execute_enable_variable": "OMNIWRAP_MCP_EXECUTE",
+    "execute_isolation": {
+      "credentials_in_child": false,
+      "default": "enabled when operating-system isolation is available, otherwise disabled",
+      "environment": "exact non-secret policy allowlist and required interpreter startup settings; no inherited parent environment",
+      "fallback": "none; unavailable operating-system isolation always refuses execution",
+      "filesystem": "generated package and interpreter read-only; per-call scratch directory writable",
+      "linux": "bubblewrap-unshare-all-no-network-no-proc-cap-drop-all+seccomp-no-exec-no-fork-no-ptrace-no-namespaces",
+      "network": "child has no network capability; SDK requests are forwarded to the parent, which reaches the configured API host only",
+      "subprocess": "denied; Windows Job Object limits active processes to one; Linux seccomp refuses execve, fork, non-thread clone, ptrace, process memory access, pidfd, io_uring, namespaces and mounts",
+      "windows": "appcontainer-no-capabilities+job-object-active-process-1"
+    },
+    "execution_backend": "bundled-python-sdk",
+    "execution_mode": "python-sdk",
+    "network_access": "configured-api-origin-only",
+    "omitted_operation_count": 0,
+    "operation_count": 8,
+    "proxy_environment_used": false,
+    "redirects_followed": false,
+    "request_bounds": {
+      "max_argument_bytes": 131072,
+      "max_argument_depth": 40,
+      "max_argument_nodes": 10000,
+      "max_frame_bytes": 131072
+    },
+    "response_bounds": {
+      "max_response_bytes_default": 4194304,
+      "max_result_bytes_default": 1048576,
+      "max_stream_events_default": 100,
+      "timeout_seconds_default": 15
+    },
+    "target_code_execution": false,
+    "tool_count": 2,
+    "tool_surface": "code",
+    "transport": "stdio",
+    "validation_process_deadline_seconds": 5
+  },
+  "source": {
+    "diagnostics": [],
+    "diagnostics_omitted_count": 0,
+    "diagnostics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "ecosystem": "semantic",
+    "legacy_ir_sha256": null,
+    "location": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358",
+    "name": "JackAI Platform OS Hub API (public subset)",
+    "normalization_diagnostic_count": 0,
+    "package_metadata": {
+      "contact_email": null,
+      "contact_name": null,
+      "contact_url": null,
+      "license_identifier": null,
+      "license_name": null,
+      "license_url": null,
+      "provenance": null,
+      "terms_of_service_url": null
+    },
+    "projection_loss_count": 0,
+    "provenance": [
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 10,
+        "pointer": "/servers/0/url",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 29,
+        "pointer": "/paths/~1health/get",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 40,
+        "pointer": "/paths/~1user~1auth~1signup-policy/get",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 73,
+        "pointer": "/paths/~1user~1me/get",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 106,
+        "pointer": "/paths/~1v1~1kernel~1usage~1fail/post",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 51,
+        "pointer": "/paths/~1user~1auth~1waitlist/post",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 62,
+        "pointer": "/paths/~1user~1auth~1login/post",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 84,
+        "pointer": "/paths/~1v1~1kernel~1usage~1reserve/post",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 95,
+        "pointer": "/paths/~1v1~1kernel~1usage~1finalize/post",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 110,
+        "pointer": "/paths/~1v1~1kernel~1usage~1fail/post/responses/200",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 33,
+        "pointer": "/paths/~1health/get/responses/200",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 44,
+        "pointer": "/paths/~1user~1auth~1signup-policy/get/responses/200",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 55,
+        "pointer": "/paths/~1user~1auth~1waitlist/post/responses/202",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 66,
+        "pointer": "/paths/~1user~1auth~1login/post/responses/200",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 77,
+        "pointer": "/paths/~1user~1me/get/responses/200",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 88,
+        "pointer": "/paths/~1v1~1kernel~1usage~1reserve/post/responses/200",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 99,
+        "pointer": "/paths/~1v1~1kernel~1usage~1finalize/post/responses/200",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 21,
+        "confidence": 1.0,
+        "line": 21,
+        "pointer": "/components/securitySchemes/bearerAuth",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      }
+    ],
+    "provenance_count": 18,
+    "provenance_omitted_count": 0,
+    "provenance_sha256": "8101a07dfa350d3521f16631b33c301d880f753bb1751d16ad9b944f13b9208f",
+    "semantic_fingerprint": "c7ca5e5ebb4c092910ec72b371e188303358c5e34d2908c0a88f782a241162cf",
+    "semantic_ir_sha256": "c7ca5e5ebb4c092910ec72b371e188303358c5e34d2908c0a88f782a241162cf",
+    "semantic_ir_version": "1.14.0",
+    "version": "1.0.0"
+  }
+}

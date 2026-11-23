@@ -1,0 +1,1514 @@
+{
+  "metadata": {
+    "auth_schemes": {
+      "bearerAuth": {
+        "scheme": "bearer",
+        "type": "http"
+      }
+    },
+    "default_base_url": "https://api.jackaisaas.com",
+    "degradation_diagnostics": [],
+    "ecosystem": "openapi",
+    "openapi_version": "3.1.0",
+    "semantic_contract_reference": "semantic-api.json",
+    "semantic_diagnostics": [],
+    "semantic_fingerprint": "c7ca5e5ebb4c092910ec72b371e188303358c5e34d2908c0a88f782a241162cf",
+    "semantic_ir_version": "1.14.0",
+    "source": "C:\\Users\\jacqu\\.gemini\\antigravity-cli\\brain\\7956a82e-2f4b-4481-9a1c-a34ded031c90\\scratch\\sdk-sync\\specs\\jackai.openapi.json"
+  },
+  "name": "jackai_platform_os_hub_api_public_subset",
+  "submodules": [],
+  "symbols": [
+    {
+      "doc": {
+        "body": "",
+        "summary": "Check that the Hub API process is up"
+      },
+      "kind": "function",
+      "members": [],
+      "metadata": {
+        "callback_graph": null,
+        "callback_state": null,
+        "deprecated": false,
+        "http_method": "GET",
+        "http_path": "/health",
+        "idempotent": true,
+        "pagination": null,
+        "param_locations": {},
+        "preferred_response": "200",
+        "preferred_response_content_type": null,
+        "request_content_type": null,
+        "request_content_types": [],
+        "response_content_types": [],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "semantic_operation": {
+          "deprecated": false,
+          "description": "",
+          "effects": {
+            "compensation": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.compensation.no-write"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": null
+            },
+            "idempotent": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.idempotent.method"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": true
+            },
+            "postconditions": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.postconditions.no-write"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": []
+            },
+            "preconditions": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.preconditions.security"
+                ],
+                "sources": [
+                  "security"
+                ]
+              },
+              "value": [
+                {
+                  "kind": "credential-present",
+                  "schemes": [
+                    "bearerAuth"
+                  ]
+                }
+              ]
+            },
+            "reversible": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.reversible.no-write"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": true
+            },
+            "writes": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.writes.safe-method"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": []
+            }
+          },
+          "extensions": {},
+          "idempotent": true,
+          "method": "GET",
+          "operation_id": "getHealth",
+          "pagination": null,
+          "parameters": [],
+          "path": "/health",
+          "provenance": {
+            "column": 14,
+            "confidence": 1.0,
+            "line": 29,
+            "pointer": "/paths/~1health/get",
+            "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+          },
+          "request_body": null,
+          "responses": {
+            "200": {
+              "content": {},
+              "description": "Hub liveness status",
+              "extensions": {},
+              "headers": {},
+              "links": {},
+              "provenance": {
+                "column": 18,
+                "confidence": 1.0,
+                "line": 33,
+                "pointer": "/paths/~1health/get/responses/200",
+                "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+              },
+              "status_code": "200"
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ],
+          "servers": [
+            {
+              "description": "JackAI Platform OS Production Hub API",
+              "extensions": {},
+              "provenance": {
+                "column": 14,
+                "confidence": 1.0,
+                "line": 10,
+                "pointer": "/servers/0/url",
+                "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+              },
+              "resolved_url": "https://api.jackaisaas.com",
+              "url": "https://api.jackaisaas.com",
+              "url_template": "https://api.jackaisaas.com",
+              "variables": {}
+            }
+          ],
+          "streaming": null,
+          "summary": "Check that the Hub API process is up",
+          "tags": [],
+          "upload": null
+        },
+        "streaming": false,
+        "streaming_mode": null,
+        "tags": [],
+        "upload": null
+      },
+      "name": "getHealth",
+      "signature": {
+        "is_async": false,
+        "parameters": [],
+        "raises": [],
+        "return_type": {
+          "args": [],
+          "name": "Any"
+        }
+      }
+    },
+    {
+      "doc": {
+        "body": "",
+        "summary": "Inspect current V1 user registration policy (waitlist vs open self-service)"
+      },
+      "kind": "function",
+      "members": [],
+      "metadata": {
+        "callback_graph": null,
+        "callback_state": null,
+        "deprecated": false,
+        "http_method": "GET",
+        "http_path": "/user/auth/signup-policy",
+        "idempotent": true,
+        "pagination": null,
+        "param_locations": {},
+        "preferred_response": "200",
+        "preferred_response_content_type": null,
+        "request_content_type": null,
+        "request_content_types": [],
+        "response_content_types": [],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "semantic_operation": {
+          "deprecated": false,
+          "description": "",
+          "effects": {
+            "compensation": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.compensation.no-write"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": null
+            },
+            "idempotent": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.idempotent.method"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": true
+            },
+            "postconditions": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.postconditions.no-write"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": []
+            },
+            "preconditions": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.preconditions.security"
+                ],
+                "sources": [
+                  "security"
+                ]
+              },
+              "value": [
+                {
+                  "kind": "credential-present",
+                  "schemes": [
+                    "bearerAuth"
+                  ]
+                }
+              ]
+            },
+            "reversible": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.reversible.no-write"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": true
+            },
+            "writes": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.writes.safe-method"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": []
+            }
+          },
+          "extensions": {},
+          "idempotent": true,
+          "method": "GET",
+          "operation_id": "getSignupPolicy",
+          "pagination": null,
+          "parameters": [],
+          "path": "/user/auth/signup-policy",
+          "provenance": {
+            "column": 14,
+            "confidence": 1.0,
+            "line": 40,
+            "pointer": "/paths/~1user~1auth~1signup-policy/get",
+            "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+          },
+          "request_body": null,
+          "responses": {
+            "200": {
+              "content": {},
+              "description": "Current signup policy",
+              "extensions": {},
+              "headers": {},
+              "links": {},
+              "provenance": {
+                "column": 18,
+                "confidence": 1.0,
+                "line": 44,
+                "pointer": "/paths/~1user~1auth~1signup-policy/get/responses/200",
+                "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+              },
+              "status_code": "200"
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ],
+          "servers": [
+            {
+              "description": "JackAI Platform OS Production Hub API",
+              "extensions": {},
+              "provenance": {
+                "column": 14,
+                "confidence": 1.0,
+                "line": 10,
+                "pointer": "/servers/0/url",
+                "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+              },
+              "resolved_url": "https://api.jackaisaas.com",
+              "url": "https://api.jackaisaas.com",
+              "url_template": "https://api.jackaisaas.com",
+              "variables": {}
+            }
+          ],
+          "streaming": null,
+          "summary": "Inspect current V1 user registration policy (waitlist vs open self-service)",
+          "tags": [],
+          "upload": null
+        },
+        "streaming": false,
+        "streaming_mode": null,
+        "tags": [],
+        "upload": null
+      },
+      "name": "getSignupPolicy",
+      "signature": {
+        "is_async": false,
+        "parameters": [],
+        "raises": [],
+        "return_type": {
+          "args": [],
+          "name": "Any"
+        }
+      }
+    },
+    {
+      "doc": {
+        "body": "",
+        "summary": "Record a prospective customer access request while V1 public signup is gated"
+      },
+      "kind": "function",
+      "members": [],
+      "metadata": {
+        "callback_graph": null,
+        "callback_state": null,
+        "deprecated": false,
+        "http_method": "POST",
+        "http_path": "/user/auth/waitlist",
+        "idempotent": false,
+        "pagination": null,
+        "param_locations": {},
+        "preferred_response": "202",
+        "preferred_response_content_type": null,
+        "request_content_type": null,
+        "request_content_types": [],
+        "response_content_types": [],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "semantic_operation": {
+          "deprecated": false,
+          "description": "",
+          "effects": {
+            "compensation": {
+              "confidence": 0.3,
+              "provenance": {
+                "rules": [
+                  "effects.compensation.none-inferred"
+                ],
+                "sources": [
+                  "default"
+                ]
+              },
+              "value": null
+            },
+            "idempotent": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.idempotent.method"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": false
+            },
+            "postconditions": {
+              "confidence": 0.3,
+              "provenance": {
+                "rules": [
+                  "effects.postconditions.none-inferred"
+                ],
+                "sources": [
+                  "default"
+                ]
+              },
+              "value": []
+            },
+            "preconditions": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.preconditions.security"
+                ],
+                "sources": [
+                  "security"
+                ]
+              },
+              "value": [
+                {
+                  "kind": "credential-present",
+                  "schemes": [
+                    "bearerAuth"
+                  ]
+                }
+              ]
+            },
+            "reversible": {
+              "confidence": 0.3,
+              "provenance": {
+                "rules": [
+                  "effects.reversible.unknown"
+                ],
+                "sources": [
+                  "default"
+                ]
+              },
+              "value": "unknown"
+            },
+            "writes": {
+              "confidence": 0.6,
+              "provenance": {
+                "rules": [
+                  "effects.writes.unsafe-method"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": [
+                "/user/auth/waitlist"
+              ]
+            }
+          },
+          "extensions": {},
+          "idempotent": false,
+          "method": "POST",
+          "operation_id": "submitWaitlistRequest",
+          "pagination": null,
+          "parameters": [],
+          "path": "/user/auth/waitlist",
+          "provenance": {
+            "column": 15,
+            "confidence": 1.0,
+            "line": 51,
+            "pointer": "/paths/~1user~1auth~1waitlist/post",
+            "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+          },
+          "request_body": null,
+          "responses": {
+            "202": {
+              "content": {},
+              "description": "Waitlist request recorded with an opaque WL- reference",
+              "extensions": {},
+              "headers": {},
+              "links": {},
+              "provenance": {
+                "column": 18,
+                "confidence": 1.0,
+                "line": 55,
+                "pointer": "/paths/~1user~1auth~1waitlist/post/responses/202",
+                "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+              },
+              "status_code": "202"
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ],
+          "servers": [
+            {
+              "description": "JackAI Platform OS Production Hub API",
+              "extensions": {},
+              "provenance": {
+                "column": 14,
+                "confidence": 1.0,
+                "line": 10,
+                "pointer": "/servers/0/url",
+                "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+              },
+              "resolved_url": "https://api.jackaisaas.com",
+              "url": "https://api.jackaisaas.com",
+              "url_template": "https://api.jackaisaas.com",
+              "variables": {}
+            }
+          ],
+          "streaming": null,
+          "summary": "Record a prospective customer access request while V1 public signup is gated",
+          "tags": [],
+          "upload": null
+        },
+        "streaming": false,
+        "streaming_mode": null,
+        "tags": [],
+        "upload": null
+      },
+      "name": "submitWaitlistRequest",
+      "signature": {
+        "is_async": false,
+        "parameters": [],
+        "raises": [],
+        "return_type": {
+          "args": [],
+          "name": "Any"
+        }
+      }
+    },
+    {
+      "doc": {
+        "body": "",
+        "summary": "Authenticate user credentials and issue host-only session or step-up MFA challenge"
+      },
+      "kind": "function",
+      "members": [],
+      "metadata": {
+        "callback_graph": null,
+        "callback_state": null,
+        "deprecated": false,
+        "http_method": "POST",
+        "http_path": "/user/auth/login",
+        "idempotent": false,
+        "pagination": null,
+        "param_locations": {},
+        "preferred_response": "200",
+        "preferred_response_content_type": null,
+        "request_content_type": null,
+        "request_content_types": [],
+        "response_content_types": [],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "semantic_operation": {
+          "deprecated": false,
+          "description": "",
+          "effects": {
+            "compensation": {
+              "confidence": 0.3,
+              "provenance": {
+                "rules": [
+                  "effects.compensation.none-inferred"
+                ],
+                "sources": [
+                  "default"
+                ]
+              },
+              "value": null
+            },
+            "idempotent": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.idempotent.method"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": false
+            },
+            "postconditions": {
+              "confidence": 0.3,
+              "provenance": {
+                "rules": [
+                  "effects.postconditions.none-inferred"
+                ],
+                "sources": [
+                  "default"
+                ]
+              },
+              "value": []
+            },
+            "preconditions": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.preconditions.security"
+                ],
+                "sources": [
+                  "security"
+                ]
+              },
+              "value": [
+                {
+                  "kind": "credential-present",
+                  "schemes": [
+                    "bearerAuth"
+                  ]
+                }
+              ]
+            },
+            "reversible": {
+              "confidence": 0.3,
+              "provenance": {
+                "rules": [
+                  "effects.reversible.unknown"
+                ],
+                "sources": [
+                  "default"
+                ]
+              },
+              "value": "unknown"
+            },
+            "writes": {
+              "confidence": 0.6,
+              "provenance": {
+                "rules": [
+                  "effects.writes.unsafe-method"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": [
+                "/user/auth/login"
+              ]
+            }
+          },
+          "extensions": {},
+          "idempotent": false,
+          "method": "POST",
+          "operation_id": "loginUser",
+          "pagination": null,
+          "parameters": [],
+          "path": "/user/auth/login",
+          "provenance": {
+            "column": 15,
+            "confidence": 1.0,
+            "line": 62,
+            "pointer": "/paths/~1user~1auth~1login/post",
+            "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+          },
+          "request_body": null,
+          "responses": {
+            "200": {
+              "content": {},
+              "description": "Authenticated session or MFA challenge",
+              "extensions": {},
+              "headers": {},
+              "links": {},
+              "provenance": {
+                "column": 18,
+                "confidence": 1.0,
+                "line": 66,
+                "pointer": "/paths/~1user~1auth~1login/post/responses/200",
+                "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+              },
+              "status_code": "200"
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ],
+          "servers": [
+            {
+              "description": "JackAI Platform OS Production Hub API",
+              "extensions": {},
+              "provenance": {
+                "column": 14,
+                "confidence": 1.0,
+                "line": 10,
+                "pointer": "/servers/0/url",
+                "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+              },
+              "resolved_url": "https://api.jackaisaas.com",
+              "url": "https://api.jackaisaas.com",
+              "url_template": "https://api.jackaisaas.com",
+              "variables": {}
+            }
+          ],
+          "streaming": null,
+          "summary": "Authenticate user credentials and issue host-only session or step-up MFA challenge",
+          "tags": [],
+          "upload": null
+        },
+        "streaming": false,
+        "streaming_mode": null,
+        "tags": [],
+        "upload": null
+      },
+      "name": "loginUser",
+      "signature": {
+        "is_async": false,
+        "parameters": [],
+        "raises": [],
+        "return_type": {
+          "args": [],
+          "name": "Any"
+        }
+      }
+    },
+    {
+      "doc": {
+        "body": "",
+        "summary": "Retrieve current user profile, organizations, and active security posture"
+      },
+      "kind": "function",
+      "members": [],
+      "metadata": {
+        "callback_graph": null,
+        "callback_state": null,
+        "deprecated": false,
+        "http_method": "GET",
+        "http_path": "/user/me",
+        "idempotent": true,
+        "pagination": null,
+        "param_locations": {},
+        "preferred_response": "200",
+        "preferred_response_content_type": null,
+        "request_content_type": null,
+        "request_content_types": [],
+        "response_content_types": [],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "semantic_operation": {
+          "deprecated": false,
+          "description": "",
+          "effects": {
+            "compensation": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.compensation.no-write"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": null
+            },
+            "idempotent": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.idempotent.method"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": true
+            },
+            "postconditions": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.postconditions.no-write"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": []
+            },
+            "preconditions": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.preconditions.security"
+                ],
+                "sources": [
+                  "security"
+                ]
+              },
+              "value": [
+                {
+                  "kind": "credential-present",
+                  "schemes": [
+                    "bearerAuth"
+                  ]
+                }
+              ]
+            },
+            "reversible": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.reversible.no-write"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": true
+            },
+            "writes": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.writes.safe-method"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": []
+            }
+          },
+          "extensions": {},
+          "idempotent": true,
+          "method": "GET",
+          "operation_id": "getCurrentUser",
+          "pagination": null,
+          "parameters": [],
+          "path": "/user/me",
+          "provenance": {
+            "column": 14,
+            "confidence": 1.0,
+            "line": 73,
+            "pointer": "/paths/~1user~1me/get",
+            "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+          },
+          "request_body": null,
+          "responses": {
+            "200": {
+              "content": {},
+              "description": "Current user context",
+              "extensions": {},
+              "headers": {},
+              "links": {},
+              "provenance": {
+                "column": 18,
+                "confidence": 1.0,
+                "line": 77,
+                "pointer": "/paths/~1user~1me/get/responses/200",
+                "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+              },
+              "status_code": "200"
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ],
+          "servers": [
+            {
+              "description": "JackAI Platform OS Production Hub API",
+              "extensions": {},
+              "provenance": {
+                "column": 14,
+                "confidence": 1.0,
+                "line": 10,
+                "pointer": "/servers/0/url",
+                "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+              },
+              "resolved_url": "https://api.jackaisaas.com",
+              "url": "https://api.jackaisaas.com",
+              "url_template": "https://api.jackaisaas.com",
+              "variables": {}
+            }
+          ],
+          "streaming": null,
+          "summary": "Retrieve current user profile, organizations, and active security posture",
+          "tags": [],
+          "upload": null
+        },
+        "streaming": false,
+        "streaming_mode": null,
+        "tags": [],
+        "upload": null
+      },
+      "name": "getCurrentUser",
+      "signature": {
+        "is_async": false,
+        "parameters": [],
+        "raises": [],
+        "return_type": {
+          "args": [],
+          "name": "Any"
+        }
+      }
+    },
+    {
+      "doc": {
+        "body": "",
+        "summary": "Phase 1 of atomic 2-phase quota metering: reserve credits before task execution"
+      },
+      "kind": "function",
+      "members": [],
+      "metadata": {
+        "callback_graph": null,
+        "callback_state": null,
+        "deprecated": false,
+        "http_method": "POST",
+        "http_path": "/v1/kernel/usage/reserve",
+        "idempotent": false,
+        "pagination": null,
+        "param_locations": {},
+        "preferred_response": "200",
+        "preferred_response_content_type": null,
+        "request_content_type": null,
+        "request_content_types": [],
+        "response_content_types": [],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "semantic_operation": {
+          "deprecated": false,
+          "description": "",
+          "effects": {
+            "compensation": {
+              "confidence": 0.3,
+              "provenance": {
+                "rules": [
+                  "effects.compensation.none-inferred"
+                ],
+                "sources": [
+                  "default"
+                ]
+              },
+              "value": null
+            },
+            "idempotent": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.idempotent.method"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": false
+            },
+            "postconditions": {
+              "confidence": 0.3,
+              "provenance": {
+                "rules": [
+                  "effects.postconditions.none-inferred"
+                ],
+                "sources": [
+                  "default"
+                ]
+              },
+              "value": []
+            },
+            "preconditions": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.preconditions.security"
+                ],
+                "sources": [
+                  "security"
+                ]
+              },
+              "value": [
+                {
+                  "kind": "credential-present",
+                  "schemes": [
+                    "bearerAuth"
+                  ]
+                }
+              ]
+            },
+            "reversible": {
+              "confidence": 0.3,
+              "provenance": {
+                "rules": [
+                  "effects.reversible.unknown"
+                ],
+                "sources": [
+                  "default"
+                ]
+              },
+              "value": "unknown"
+            },
+            "writes": {
+              "confidence": 0.6,
+              "provenance": {
+                "rules": [
+                  "effects.writes.unsafe-method"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": [
+                "/v1/kernel/usage/reserve"
+              ]
+            }
+          },
+          "extensions": {},
+          "idempotent": false,
+          "method": "POST",
+          "operation_id": "reserveUsageQuota",
+          "pagination": null,
+          "parameters": [],
+          "path": "/v1/kernel/usage/reserve",
+          "provenance": {
+            "column": 15,
+            "confidence": 1.0,
+            "line": 84,
+            "pointer": "/paths/~1v1~1kernel~1usage~1reserve/post",
+            "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+          },
+          "request_body": null,
+          "responses": {
+            "200": {
+              "content": {},
+              "description": "Reservation lease created",
+              "extensions": {},
+              "headers": {},
+              "links": {},
+              "provenance": {
+                "column": 18,
+                "confidence": 1.0,
+                "line": 88,
+                "pointer": "/paths/~1v1~1kernel~1usage~1reserve/post/responses/200",
+                "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+              },
+              "status_code": "200"
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ],
+          "servers": [
+            {
+              "description": "JackAI Platform OS Production Hub API",
+              "extensions": {},
+              "provenance": {
+                "column": 14,
+                "confidence": 1.0,
+                "line": 10,
+                "pointer": "/servers/0/url",
+                "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+              },
+              "resolved_url": "https://api.jackaisaas.com",
+              "url": "https://api.jackaisaas.com",
+              "url_template": "https://api.jackaisaas.com",
+              "variables": {}
+            }
+          ],
+          "streaming": null,
+          "summary": "Phase 1 of atomic 2-phase quota metering: reserve credits before task execution",
+          "tags": [],
+          "upload": null
+        },
+        "streaming": false,
+        "streaming_mode": null,
+        "tags": [],
+        "upload": null
+      },
+      "name": "reserveUsageQuota",
+      "signature": {
+        "is_async": false,
+        "parameters": [],
+        "raises": [],
+        "return_type": {
+          "args": [],
+          "name": "Any"
+        }
+      }
+    },
+    {
+      "doc": {
+        "body": "",
+        "summary": "Phase 2 of atomic 2-phase quota metering: commit actual consumed credits"
+      },
+      "kind": "function",
+      "members": [],
+      "metadata": {
+        "callback_graph": null,
+        "callback_state": null,
+        "deprecated": false,
+        "http_method": "POST",
+        "http_path": "/v1/kernel/usage/finalize",
+        "idempotent": false,
+        "pagination": null,
+        "param_locations": {},
+        "preferred_response": "200",
+        "preferred_response_content_type": null,
+        "request_content_type": null,
+        "request_content_types": [],
+        "response_content_types": [],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "semantic_operation": {
+          "deprecated": false,
+          "description": "",
+          "effects": {
+            "compensation": {
+              "confidence": 0.3,
+              "provenance": {
+                "rules": [
+                  "effects.compensation.none-inferred"
+                ],
+                "sources": [
+                  "default"
+                ]
+              },
+              "value": null
+            },
+            "idempotent": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.idempotent.method"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": false
+            },
+            "postconditions": {
+              "confidence": 0.3,
+              "provenance": {
+                "rules": [
+                  "effects.postconditions.none-inferred"
+                ],
+                "sources": [
+                  "default"
+                ]
+              },
+              "value": []
+            },
+            "preconditions": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.preconditions.security"
+                ],
+                "sources": [
+                  "security"
+                ]
+              },
+              "value": [
+                {
+                  "kind": "credential-present",
+                  "schemes": [
+                    "bearerAuth"
+                  ]
+                }
+              ]
+            },
+            "reversible": {
+              "confidence": 0.3,
+              "provenance": {
+                "rules": [
+                  "effects.reversible.unknown"
+                ],
+                "sources": [
+                  "default"
+                ]
+              },
+              "value": "unknown"
+            },
+            "writes": {
+              "confidence": 0.6,
+              "provenance": {
+                "rules": [
+                  "effects.writes.unsafe-method"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": [
+                "/v1/kernel/usage/finalize"
+              ]
+            }
+          },
+          "extensions": {},
+          "idempotent": false,
+          "method": "POST",
+          "operation_id": "finalizeUsageQuota",
+          "pagination": null,
+          "parameters": [],
+          "path": "/v1/kernel/usage/finalize",
+          "provenance": {
+            "column": 15,
+            "confidence": 1.0,
+            "line": 95,
+            "pointer": "/paths/~1v1~1kernel~1usage~1finalize/post",
+            "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+          },
+          "request_body": null,
+          "responses": {
+            "200": {
+              "content": {},
+              "description": "Reservation finalized",
+              "extensions": {},
+              "headers": {},
+              "links": {},
+              "provenance": {
+                "column": 18,
+                "confidence": 1.0,
+                "line": 99,
+                "pointer": "/paths/~1v1~1kernel~1usage~1finalize/post/responses/200",
+                "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+              },
+              "status_code": "200"
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ],
+          "servers": [
+            {
+              "description": "JackAI Platform OS Production Hub API",
+              "extensions": {},
+              "provenance": {
+                "column": 14,
+                "confidence": 1.0,
+                "line": 10,
+                "pointer": "/servers/0/url",
+                "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+              },
+              "resolved_url": "https://api.jackaisaas.com",
+              "url": "https://api.jackaisaas.com",
+              "url_template": "https://api.jackaisaas.com",
+              "variables": {}
+            }
+          ],
+          "streaming": null,
+          "summary": "Phase 2 of atomic 2-phase quota metering: commit actual consumed credits",
+          "tags": [],
+          "upload": null
+        },
+        "streaming": false,
+        "streaming_mode": null,
+        "tags": [],
+        "upload": null
+      },
+      "name": "finalizeUsageQuota",
+      "signature": {
+        "is_async": false,
+        "parameters": [],
+        "raises": [],
+        "return_type": {
+          "args": [],
+          "name": "Any"
+        }
+      }
+    },
+    {
+      "doc": {
+        "body": "",
+        "summary": "Release the reserved quota of an execution that failed or was cancelled"
+      },
+      "kind": "function",
+      "members": [],
+      "metadata": {
+        "callback_graph": null,
+        "callback_state": null,
+        "deprecated": false,
+        "http_method": "POST",
+        "http_path": "/v1/kernel/usage/fail",
+        "idempotent": false,
+        "pagination": null,
+        "param_locations": {},
+        "preferred_response": "200",
+        "preferred_response_content_type": null,
+        "request_content_type": null,
+        "request_content_types": [],
+        "response_content_types": [],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "semantic_operation": {
+          "deprecated": false,
+          "description": "",
+          "effects": {
+            "compensation": {
+              "confidence": 0.3,
+              "provenance": {
+                "rules": [
+                  "effects.compensation.none-inferred"
+                ],
+                "sources": [
+                  "default"
+                ]
+              },
+              "value": null
+            },
+            "idempotent": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.idempotent.method"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": false
+            },
+            "postconditions": {
+              "confidence": 0.3,
+              "provenance": {
+                "rules": [
+                  "effects.postconditions.none-inferred"
+                ],
+                "sources": [
+                  "default"
+                ]
+              },
+              "value": []
+            },
+            "preconditions": {
+              "confidence": 0.9,
+              "provenance": {
+                "rules": [
+                  "effects.preconditions.security"
+                ],
+                "sources": [
+                  "security"
+                ]
+              },
+              "value": [
+                {
+                  "kind": "credential-present",
+                  "schemes": [
+                    "bearerAuth"
+                  ]
+                }
+              ]
+            },
+            "reversible": {
+              "confidence": 0.3,
+              "provenance": {
+                "rules": [
+                  "effects.reversible.unknown"
+                ],
+                "sources": [
+                  "default"
+                ]
+              },
+              "value": "unknown"
+            },
+            "writes": {
+              "confidence": 0.6,
+              "provenance": {
+                "rules": [
+                  "effects.writes.unsafe-method"
+                ],
+                "sources": [
+                  "http-method"
+                ]
+              },
+              "value": [
+                "/v1/kernel/usage/fail"
+              ]
+            }
+          },
+          "extensions": {},
+          "idempotent": false,
+          "method": "POST",
+          "operation_id": "failUsageQuota",
+          "pagination": null,
+          "parameters": [],
+          "path": "/v1/kernel/usage/fail",
+          "provenance": {
+            "column": 15,
+            "confidence": 1.0,
+            "line": 106,
+            "pointer": "/paths/~1v1~1kernel~1usage~1fail/post",
+            "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+          },
+          "request_body": null,
+          "responses": {
+            "200": {
+              "content": {},
+              "description": "Reservation released",
+              "extensions": {},
+              "headers": {},
+              "links": {},
+              "provenance": {
+                "column": 18,
+                "confidence": 1.0,
+                "line": 110,
+                "pointer": "/paths/~1v1~1kernel~1usage~1fail/post/responses/200",
+                "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+              },
+              "status_code": "200"
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ],
+          "servers": [
+            {
+              "description": "JackAI Platform OS Production Hub API",
+              "extensions": {},
+              "provenance": {
+                "column": 14,
+                "confidence": 1.0,
+                "line": 10,
+                "pointer": "/servers/0/url",
+                "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+              },
+              "resolved_url": "https://api.jackaisaas.com",
+              "url": "https://api.jackaisaas.com",
+              "url_template": "https://api.jackaisaas.com",
+              "variables": {}
+            }
+          ],
+          "streaming": null,
+          "summary": "Release the reserved quota of an execution that failed or was cancelled",
+          "tags": [],
+          "upload": null
+        },
+        "streaming": false,
+        "streaming_mode": null,
+        "tags": [],
+        "upload": null
+      },
+      "name": "failUsageQuota",
+      "signature": {
+        "is_async": false,
+        "parameters": [],
+        "raises": [],
+        "return_type": {
+          "args": [],
+          "name": "Any"
+        }
+      }
+    }
+  ],
+  "version": "1.0.0"
+}

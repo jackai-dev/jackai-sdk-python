@@ -1,0 +1,200 @@
+{
+  "$schema": "https://omniwrap.dev/schemas/artifact-manifest/v1.json",
+  "artifact": {
+    "capabilities": [
+      "attested-native-sdk-members",
+      "bounded-cited-knowledge-search",
+      "deterministic-agent-outcome-corpus",
+      "mcp-resources",
+      "non-executing-request-plans",
+      "read-only-symbol-knowledge",
+      "semantic-operation-knowledge"
+    ],
+    "limitations": [
+      "Native SDK members describe only the SDK packages generated together with this server; a package identity does not establish registry publication.",
+      "Search ranking is deterministic exact-reference-then-weighted-lexical retrieval rather than semantic embedding retrieval.",
+      "The embedded task corpus enables local retrieval scoring but does not claim live-model task completion.",
+      "This knowledge artifact intentionally contains no execution tool."
+    ],
+    "maturity": "verified",
+    "type": "mcp-knowledge-server"
+  },
+  "files": {
+    "README.md": "1b35ae487761313f3bd1c59b1c29a4b627eca2baf8ae2da53c37ae1f31d2b6a0",
+    "agent-tasks.json": "a4ed4a680fc62884353a998140ec07f5b49ce65a279af824d6a04221bd2d9d80",
+    "knowledge-index.json": "aca00d95b3c3f4ab016bd402abe9f91c83b1df60ee4dc50741e66760ad932100",
+    "library-ir.json": "5ae43e737e270d9ff23683a770ea9e0ded8152f2875e72c2d680c7972a7f32a2",
+    "mcp.json": "133f6a9ec4592170d6ce0d8d1aae6c53513f14512143e7059aafbbfd6e1b5aca",
+    "sdk-targets.json": "4cbf4094508c8dbd26d1bbb7843141069fb309bc05f97be1fcd3c8eac9814498",
+    "semantic-api.json": "a7b953550b035aa1a7269f3a4cf0e8fe79b80982c546c2745106498ce174f2a2",
+    "server.py": "492335b66cbc1aaa42c670a1886b6f320400453ac06e8832b001a865ae33f4f3"
+  },
+  "generator": {
+    "name": "omniwrap",
+    "version": "2.0.0"
+  },
+  "manifest_version": "1.3.0",
+  "security": {
+    "execution_enabled": false,
+    "network_access": false,
+    "read_only": true,
+    "requires_secrets": false,
+    "target_code_execution": false
+  },
+  "source": {
+    "diagnostics": [],
+    "diagnostics_omitted_count": 0,
+    "diagnostics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "ecosystem": "semantic",
+    "legacy_ir_sha256": null,
+    "location": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358",
+    "name": "JackAI Platform OS Hub API (public subset)",
+    "normalization_diagnostic_count": 0,
+    "package_metadata": {
+      "contact_email": null,
+      "contact_name": null,
+      "contact_url": null,
+      "license_identifier": null,
+      "license_name": null,
+      "license_url": null,
+      "provenance": null,
+      "terms_of_service_url": null
+    },
+    "projection_loss_count": 0,
+    "provenance": [
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 10,
+        "pointer": "/servers/0/url",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 29,
+        "pointer": "/paths/~1health/get",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 40,
+        "pointer": "/paths/~1user~1auth~1signup-policy/get",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 73,
+        "pointer": "/paths/~1user~1me/get",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 106,
+        "pointer": "/paths/~1v1~1kernel~1usage~1fail/post",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 51,
+        "pointer": "/paths/~1user~1auth~1waitlist/post",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 62,
+        "pointer": "/paths/~1user~1auth~1login/post",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 84,
+        "pointer": "/paths/~1v1~1kernel~1usage~1reserve/post",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 95,
+        "pointer": "/paths/~1v1~1kernel~1usage~1finalize/post",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 110,
+        "pointer": "/paths/~1v1~1kernel~1usage~1fail/post/responses/200",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 33,
+        "pointer": "/paths/~1health/get/responses/200",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 44,
+        "pointer": "/paths/~1user~1auth~1signup-policy/get/responses/200",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 55,
+        "pointer": "/paths/~1user~1auth~1waitlist/post/responses/202",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 66,
+        "pointer": "/paths/~1user~1auth~1login/post/responses/200",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 77,
+        "pointer": "/paths/~1user~1me/get/responses/200",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 88,
+        "pointer": "/paths/~1v1~1kernel~1usage~1reserve/post/responses/200",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 99,
+        "pointer": "/paths/~1v1~1kernel~1usage~1finalize/post/responses/200",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      },
+      {
+        "column": 21,
+        "confidence": 1.0,
+        "line": 21,
+        "pointer": "/components/securitySchemes/bearerAuth",
+        "source": "local://323b0c99dfea9f8bd8488628568e62560ed5a40570a3426c49b84c5869c66358"
+      }
+    ],
+    "provenance_count": 18,
+    "provenance_omitted_count": 0,
+    "provenance_sha256": "8101a07dfa350d3521f16631b33c301d880f753bb1751d16ad9b944f13b9208f",
+    "semantic_fingerprint": "c7ca5e5ebb4c092910ec72b371e188303358c5e34d2908c0a88f782a241162cf",
+    "semantic_ir_sha256": "c7ca5e5ebb4c092910ec72b371e188303358c5e34d2908c0a88f782a241162cf",
+    "semantic_ir_version": "1.14.0",
+    "version": "1.0.0"
+  }
+}

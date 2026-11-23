@@ -1,0 +1,605 @@
+{
+  "$schema": "https://omniwrap.dev/schemas/semantic-agent-task-corpus/v1.json",
+  "contract_fingerprint": "c7ca5e5ebb4c092910ec72b371e188303358c5e34d2908c0a88f782a241162cf",
+  "contract_title": "JackAI Platform OS Hub API (public subset)",
+  "corpus_sha256": "6427b015c23dd2a3b1acc22ebf3e94d8a4db9b807787ca9ceb800ea6cfcbc3f0",
+  "generation_profile": "semantic-retrieval-and-planning-v2",
+  "task_corpus_version": "1.0.0",
+  "tasks": [
+    {
+      "auth_ids": [
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/failUsageQuota"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover the exact authentication scheme, location or flow, and required scopes.",
+      "kind": "authentication",
+      "operation_ids": [
+        "failUsageQuota"
+      ],
+      "query": "How is bearerAuth authentication applied to failUsageQuota? Cite exactly: operation:failUsageQuota, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "authentication-failusagequota-bearerauth"
+    },
+    {
+      "auth_ids": [
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/failUsageQuota"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Identify the operation without inventing a route or method.",
+      "kind": "discovery",
+      "operation_ids": [
+        "failUsageQuota"
+      ],
+      "query": "Find the exact operation failUsageQuota (POST /v1/kernel/usage/fail) for Release the reserved quota of an execution that failed or was cancelled. Cite exactly: operation:failUsageQuota, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "discovery-failusagequota"
+    },
+    {
+      "auth_ids": [
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/finalizeUsageQuota"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Identify the operation without inventing a route or method.",
+      "kind": "discovery",
+      "operation_ids": [
+        "finalizeUsageQuota"
+      ],
+      "query": "Find the exact operation finalizeUsageQuota (POST /v1/kernel/usage/finalize) for Phase 2 of atomic 2-phase quota metering: commit actual consumed credits. Cite exactly: operation:finalizeUsageQuota, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "discovery-finalizeusagequota"
+    },
+    {
+      "auth_ids": [
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/getCurrentUser"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Identify the operation without inventing a route or method.",
+      "kind": "discovery",
+      "operation_ids": [
+        "getCurrentUser"
+      ],
+      "query": "Find the exact operation getCurrentUser (GET /user/me) for Retrieve current user profile, organizations, and active security posture. Cite exactly: operation:getCurrentUser, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "discovery-getcurrentuser"
+    },
+    {
+      "auth_ids": [
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/getHealth"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Identify the operation without inventing a route or method.",
+      "kind": "discovery",
+      "operation_ids": [
+        "getHealth"
+      ],
+      "query": "Find the exact operation getHealth (GET /health) for Check that the Hub API process is up. Cite exactly: operation:getHealth, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "discovery-gethealth"
+    },
+    {
+      "auth_ids": [
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/getSignupPolicy"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Identify the operation without inventing a route or method.",
+      "kind": "discovery",
+      "operation_ids": [
+        "getSignupPolicy"
+      ],
+      "query": "Find the exact operation getSignupPolicy (GET /user/auth/signup-policy) for Inspect current V1 user registration policy (waitlist vs open self-service). Cite exactly: operation:getSignupPolicy, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "discovery-getsignuppolicy"
+    },
+    {
+      "auth_ids": [
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/loginUser"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Identify the operation without inventing a route or method.",
+      "kind": "discovery",
+      "operation_ids": [
+        "loginUser"
+      ],
+      "query": "Find the exact operation loginUser (POST /user/auth/login) for Authenticate user credentials and issue host-only session or step-up MFA challenge. Cite exactly: operation:loginUser, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "discovery-loginuser"
+    },
+    {
+      "auth_ids": [
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/reserveUsageQuota"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Identify the operation without inventing a route or method.",
+      "kind": "discovery",
+      "operation_ids": [
+        "reserveUsageQuota"
+      ],
+      "query": "Find the exact operation reserveUsageQuota (POST /v1/kernel/usage/reserve) for Phase 1 of atomic 2-phase quota metering: reserve credits before task execution. Cite exactly: operation:reserveUsageQuota, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "discovery-reserveusagequota"
+    },
+    {
+      "auth_ids": [
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/submitWaitlistRequest"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Identify the operation without inventing a route or method.",
+      "kind": "discovery",
+      "operation_ids": [
+        "submitWaitlistRequest"
+      ],
+      "query": "Find the exact operation submitWaitlistRequest (POST /user/auth/waitlist) for Record a prospective customer access request while V1 public signup is gated. Cite exactly: operation:submitWaitlistRequest, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "discovery-submitwaitlistrequest"
+    },
+    {
+      "auth_ids": [
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/failUsageQuota"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover exact wire parameters, request media, responses, and safety traits.",
+      "kind": "integration",
+      "operation_ids": [
+        "failUsageQuota"
+      ],
+      "query": "Plan a correct SDK integration for failUsageQuota (POST /v1/kernel/usage/fail). Cite exactly: operation:failUsageQuota, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "integration-failusagequota"
+    },
+    {
+      "auth_ids": [
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/finalizeUsageQuota"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover exact wire parameters, request media, responses, and safety traits.",
+      "kind": "integration",
+      "operation_ids": [
+        "finalizeUsageQuota"
+      ],
+      "query": "Plan a correct SDK integration for finalizeUsageQuota (POST /v1/kernel/usage/finalize). Cite exactly: operation:finalizeUsageQuota, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "integration-finalizeusagequota"
+    },
+    {
+      "auth_ids": [
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/getCurrentUser"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover exact wire parameters, request media, responses, and safety traits.",
+      "kind": "integration",
+      "operation_ids": [
+        "getCurrentUser"
+      ],
+      "query": "Plan a correct SDK integration for getCurrentUser (GET /user/me). Cite exactly: operation:getCurrentUser, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "integration-getcurrentuser"
+    },
+    {
+      "auth_ids": [
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/getHealth"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover exact wire parameters, request media, responses, and safety traits.",
+      "kind": "integration",
+      "operation_ids": [
+        "getHealth"
+      ],
+      "query": "Plan a correct SDK integration for getHealth (GET /health). Cite exactly: operation:getHealth, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "integration-gethealth"
+    },
+    {
+      "auth_ids": [
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/getSignupPolicy"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover exact wire parameters, request media, responses, and safety traits.",
+      "kind": "integration",
+      "operation_ids": [
+        "getSignupPolicy"
+      ],
+      "query": "Plan a correct SDK integration for getSignupPolicy (GET /user/auth/signup-policy). Cite exactly: operation:getSignupPolicy, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "integration-getsignuppolicy"
+    },
+    {
+      "auth_ids": [
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/loginUser"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover exact wire parameters, request media, responses, and safety traits.",
+      "kind": "integration",
+      "operation_ids": [
+        "loginUser"
+      ],
+      "query": "Plan a correct SDK integration for loginUser (POST /user/auth/login). Cite exactly: operation:loginUser, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "integration-loginuser"
+    },
+    {
+      "auth_ids": [
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/reserveUsageQuota"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover exact wire parameters, request media, responses, and safety traits.",
+      "kind": "integration",
+      "operation_ids": [
+        "reserveUsageQuota"
+      ],
+      "query": "Plan a correct SDK integration for reserveUsageQuota (POST /v1/kernel/usage/reserve). Cite exactly: operation:reserveUsageQuota, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "integration-reserveusagequota"
+    },
+    {
+      "auth_ids": [
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/submitWaitlistRequest"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover exact wire parameters, request media, responses, and safety traits.",
+      "kind": "integration",
+      "operation_ids": [
+        "submitWaitlistRequest"
+      ],
+      "query": "Plan a correct SDK integration for submitWaitlistRequest (POST /user/auth/waitlist). Cite exactly: operation:submitWaitlistRequest, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "integration-submitwaitlistrequest"
+    }
+  ]
+}
